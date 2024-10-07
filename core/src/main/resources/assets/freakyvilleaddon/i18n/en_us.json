@@ -1,0 +1,369 @@
+{
+  "freakyvilleaddon": {
+    "hudWidget": {
+      "A+_Vault_widget": {
+        "name": "A+ Bank timer"
+      },
+      "A_Vault_widget": {
+        "name": "A Vagtvault timer"
+      },
+      "B_Vault_widget": {
+        "name": "B Vagtvault timer"
+      },
+      "C_Vault_widget": {
+        "name": "C Vagtvault timer"
+      },
+      "A+_Bandeområde_widget": {
+        "name": "A+ Bandeområde timer"
+      },
+      "A_Bandeområde_widget": {
+        "name": "A Bandeområde timer"
+      },
+      "Rocker_Torben_widget": {
+        "name": "Rocker torben timer"
+      },
+      "Vaults_disabled_widget": {
+        "name": "A+/A VV slået fra",
+        "description": "En timer over cooldownen, når en vagt slår A+/A vagtvault fra."
+      },
+      "B_PvPChest_Timer": {
+        "name": "B hemmelig kiste timer",
+        "description": "En timer over den hemmelige kiste, der gemmer sig i pvp minen i b."
+      },
+      "B+_GangArea_Timer": {
+        "name": "B+ Bandeområde timer"
+      },
+      "Vaults_b_widget": {
+        "name": "B+ Bank timer"
+      },
+      "B_GangArea_Timer": {
+        "name": "B Bandeområde timer"
+      },
+      "Gang_Cooldown_GangArea_Timer": {
+        "name":"Join BO Cooldown"
+      },
+      "chest_FitnessTimerTextHudWidget": {
+        "name": "[Chest]: Fitness"
+      },
+      "chest_MinenTimerTextHudWidget": {
+        "name": "[Chest]: Minen"
+      },
+      "chest_MrXTimerTextHudWidget": {
+        "name": "[Chest]: MrX"
+      },
+      "chest_SortPortalTimerTextHudWidget": {
+        "name": "[Chest]: SortPortal"
+      },
+      "chest_TankStationTimerTextHudWidget": {
+        "name": "[Chest]: Tank Station"
+      },
+      "chest_TreeTimerTextHudWidget": {
+        "name": "[Chest]: Træet"
+      }
+    },
+    "settings": {
+      "name": "FreakyvilleAddon",
+      "enabled": {
+        "name": "Enabled"
+      },
+      "discordDisabled": {
+        "name": "Discord Command"
+      },
+      "fileAccess": {
+        "name": "Fil adgang (Hold musen over for mere information)",
+        "description": "For at \"Kit Head Timers\", \"Chest Timers\", \"Investments\" og \"Stats\" skal fungere, skal denne være slået til. Læs mere på vores Discord under \"FAQ\"."
+      },
+      "header": {
+        "Prison": {
+          "name": "Prison indstillinger"
+        },
+        "Friheden": {
+          "name": "Friheden indstillinger"
+        },
+        "Misc": {
+          "name": "Misc indstillinger"
+        }
+      },
+      "frihedenConfig": {
+        "name": "Friheden",
+        "header": {
+          "betterapartments": {
+            "name": "BetterApartments indstillinger"
+          },
+          "betterinvestments": {
+            "name": "BetterInvestments indstillinger"
+          },
+          "betterRenter": {
+            "name": "BetterRenter indstillinger"
+          },
+          "betterTimer": {
+            "name": "BetterTimer indstillinger"
+          }
+        },
+        "ApartmentsEnabled": {
+          "name": "BetterApartments",
+          "ReqEnabled": {
+            "name": "Krav"
+          },
+          "DesEnabled": {
+            "name": "Lokation/Beskrivelse"
+          }
+        },
+        "TimerEnabled": {
+          "name": "BetterTimer"
+        },
+        "InvestmentsEnabled": {
+          "name": "BetterInvestments",
+          "joinTitle": {
+            "name": "Join Title",
+            "description": "Slå fra/til sådan når du joiner Freakyville kommer der en text op på din skærm med du kan tage investeringer"
+          }
+        },
+        "renterEnabled": {
+          "name": "BetterRenter"
+        },
+        "TimersEnabled": {
+          "name": "BetterTimers"
+        }
+      },
+      "prisonConfig": {
+        "name": "Prison",
+        "header": {
+          "VagtSettings": {
+            "name": "Vagt indstillinger (Ignore hvis du er fange)"
+          },
+          "BetterCells": {
+            "name": "BetterCells indstillinger"
+          },
+          "PlayerNotifierSettings": {
+            "name": "Playernotifier indstillinger"
+          },
+          "BetterTimers": {
+            "name": "BetterTimers indstillinger"
+          },
+          "BetterNameTags": {
+            "name": "BetterNameTags indstillinger"
+          },
+          "EventNotifier": {
+            "name": "EventNotifier indstillinger"
+          },
+          "Quests": {
+            "name": "Quests indstillinger"
+          }
+        },
+        "guardSubSettings": {
+          "name": "Vagt indstillinger",
+          "vagtSwitch": {
+            "name": "(Ignore denne knap)",
+            "description": "Denne knap angiver, om du spiller på vagt, og hvis du er det, bør denne knap være slået til."
+          },
+          "automaticSwitch": {
+            "name": "Slår automatisk timers af for denne account:",
+            "description": "Deaktiverer automatisk alle timers, når du joiner med den indskrevet account"
+          },
+          "vagtName": {
+            "name": "Vagt account:",
+            "description": "Navnet på den account, der vil deaktivere alle timers."
+          }
+        },
+        "betterCells": {
+          "name": "BetterCells"
+        },
+        "playerNotifierSubSettings": {
+          "name": "Player Notifer",
+          "joinNotifier": {
+            "name": "Join Notifier",
+            "description": "Giver dig en notifikation, hvis en bestemt spiller joiner den server du er på"
+          },
+          "leaveNotifier": {
+            "name": "Leave Notifier",
+            "description": "Giver dig en notifikation, hvis en bestemt spiller leaver den server du er på"
+          },
+          "playerNotifier": {
+            "name": "Enabled"
+          },
+          "playerNotifierColor": {
+            "name": "PlayerNotifier farver"
+          }
+        },
+        "nameTagsSubSettings": {
+          "name": "BetterNameTags",
+          "nameTags": {
+            "name": "Enabled"
+          },
+          "betterNameTagsColorSettings": {
+            "name": "Farve indstillinger",
+            "nameTagMessageColor": {
+              "name": "Message Color"
+            },
+            "nameTagColor": {
+              "name": "NameTag Color"
+            }
+          },
+          "betterNameTagsFontSettings": {
+            "name": "Skrifttype indstillinger",
+            "boldFont": {
+              "name": "Fed skrifttype"
+            },
+            "italic": {
+              "name": "Kursiv/Skråskrift skrifttype"
+            },
+            "underline": {
+              "name": "Understreget skrifttype"
+            },
+            "magic": {
+              "name": "Magic Font"
+            },
+            "strike": {
+              "name": "Strike Font"
+            }
+          }
+        },
+        "bettertimersSubSettings": {
+          "name": "BetterTimers",
+          "betterTimersColorSettings": {
+            "name": "Farve indstillinger",
+            "knownTimerColor": {
+              "name": "Farve for kendte timers"
+            },
+            "unknownTimerColor": {
+              "name": "Farve for ikke kendte timers"
+            },
+            "mainTimerColor": {
+              "name": "Hovedfarve"
+            }
+          },
+          "KitHeadTimer": {
+            "name": "Kit Head Timer",
+            "description": "OBS!: Når aktiveret, vil denne funktion gemme og hente en fil i dine Minecraft-filer. Dette er nødvendigt for at bevare dine kits timer, selv efter du genstarter Minecraft."
+          },
+          "ChestTimer": {
+            "name": "B Chest Timer",
+            "description": "OBS!: Når aktiveret, vil denne funktion gemme og hente en fil i dine Minecraft-filer. Dette er nødvendigt for at bevare chests timer, selv efter du genstarter Minecraft."
+          },
+          "betterTimersNotificationSettings": {
+            "name": "Notifikation indstillinger",
+            "timerNotification": {
+              "name": "Timer notifikation"
+            },
+            "timerNotificationSlider": {
+              "name": "Timer notifikation slider"
+            },
+            "betterTimersMessage": {
+              "name": "BetterTimers bekræftes beskeder"
+            }
+          }
+        },
+        "eventNotifierSubSettings": {
+          "name": "Event Notifier",
+          "eventNotifier": {
+            "name": "Enabled"
+          },
+          "eventNotifierSoundSubSettings": {
+            "name": "Sound indstillinger",
+            "soundEnabled": {
+              "name": "Notifikation sounds"
+            },
+            "notifierSound": {
+              "name": "Lydtype"
+            },
+            "volume": {
+              "name": "Lyd"
+            }
+          },
+          "eventNotifierEventsSubSettings": {
+            "name": "Event indstillinger",
+            "aPlusVaultEvent": {
+              "name": "A+ Bank"
+            },
+            "aVaultEvent": {
+              "name": "A VV"
+            },
+            "bVaultEvent": {
+              "name": "B VV"
+            },
+            "cVaultEvent": {
+              "name": "C VV"
+            },
+            "aGangAreaEvent": {
+              "name": "A BO"
+            },
+            "aPlusGangAreaEvent": {
+              "name": "A+ BO"
+            },
+            "rockerTorbenEvent": {
+              "name": "Rocker Torben"
+            },
+            "guardsDisabledVaultsEvent": {
+              "name": "A+/B+/A VV slået fra"
+            },
+            "stringCaughtEvent": {
+              "name": "String fanget"
+            },
+            "headEvent": {
+              "name": "Head i VV / BO"
+            },
+            "guardKillEvent": {
+              "name": "Vagt kills"
+            },
+            "bPlusGangAreaEvent": {
+              "name": "B+ BO"
+            },
+            "bGangAreaEvent": {
+              "name": "B BO"
+            },
+            "pvpChestEvent": {
+              "name": "B hemmelige kiste"
+            },
+            "bPlusVaultEvent": {
+              "name": "B+ Bank"
+            },
+            "FlipNewOfferEvent": {
+              "name": "[Flipman] Nyt modbud"
+            },
+            "FlipWinningEvent": {
+              "name": "[Flipman] Flip vundet"
+            },
+            "FlipLosingEvent": {
+              "name": "[Flipman] Flip tabt"
+            },
+            "BoLootEvent": {
+              "name": "Claim BO loot"
+            }
+          }
+        },
+        "questSubSettings": {
+          "name": "Quest",
+          "questsEnabled": {
+            "name": "Enabled"
+          },
+          "questasubSettings": {
+            "name": "A Quest",
+            "gertvagtEnabled": {
+              "name": "Gert Vagt"
+            },
+            "donvitoEnabled": {
+              "name": "Donvito"
+            }
+          },
+          "questbsubSettings": {
+            "name": "B Quest",
+            "mrxEnabled": {
+              "name": "Mr. X"
+            },
+            "finnfiskerEnabled": {
+              "name": "Finn Fisker"
+            },
+            "pallevagtEnabled": {
+              "name": "Palle Vagt"
+            }
+          }
+        }
+      }
+    },
+    "messages": {
+      "campHelp": "§a/camp <playerName>"
+    }
+
+  }
+}
