@@ -41,6 +41,7 @@ public class ServerJoin {
 
   private boolean isModuleDisabled() {
     return addon.configuration().getBetterInvestmentsEnabled().get().equals(false) ||
+        addon.configuration().getInvestmentsJoinTitleEnable().get().equals(false)||
         addon.configuration().enabled().get().equals(false) ||
         addon.configuration().getFrihedenEnabled().get().equals(false)||
         addon.configuration().getHasfileAccess().get().equals(false);

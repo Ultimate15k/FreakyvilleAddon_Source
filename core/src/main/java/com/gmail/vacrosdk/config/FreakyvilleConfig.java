@@ -54,11 +54,11 @@ public class FreakyvilleConfig extends AddonConfig {
   public ConfigProperty<Boolean> getRenterEnabled() {
     return frihedenConfig.getRenterEnabled();
   }
-  public ConfigProperty<Boolean> getTimerEnabled() {
-    return frihedenConfig.getTimerEnabled();
-  }
   public ConfigProperty<Boolean> getBetterCells() {
     return prisonConfig.getBetterCells();
+  }
+  public ConfigProperty<Boolean> getBetterCellsLocation() {
+    return prisonConfig.getBetterCellsLocation();
   }
   //PlayerNotifier
   public ConfigProperty<Boolean> getPlayerNotifier() {

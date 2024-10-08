@@ -20,9 +20,8 @@ public class CellsFunctions {
   private static List<CSVRecord> csvRecords = new ArrayList<>(); // Store CSV records in memory
 
   // Method to preload the CSV data into memory
-  public static void preloadCSV() throws IOException {
+  public static String preloadCSV() {
     OkHttpClient client = new OkHttpClient();
-
     Logging.getLogger().info("Preloading CSV data from URL: " + CSV_URL);
 
     Request request = new Request.Builder()
@@ -34,7 +33,7 @@ public class CellsFunctions {
 
       if (!response.isSuccessful()) {
         Logging.getLogger().error("Unexpected code during CSV preload " + response);
-        throw new IOException("Unexpected code " + response);
+        return "§cFejl: §fUkendt data - §7" + response;
       }
 
       assert response.body() != null;
@@ -43,6 +42,10 @@ public class CellsFunctions {
       csvRecords = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader).getRecords();
 
       Logging.getLogger().info("CSV data preloaded successfully. Total records: " + csvRecords.size());
+      return "§aGennemført: §fAntal celler: " + csvRecords.size();
+    } catch (IOException e) {
+      Logging.getLogger().error("IOException during CSV preload: " + e.getMessage());
+      return "§cFejl: §f" + e.getMessage();
     }
   }
 

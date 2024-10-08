@@ -9,7 +9,7 @@ import com.gmail.vacrosdk.modules.Friheden.BetterInvestments.Listener.Investment
 import com.gmail.vacrosdk.modules.Friheden.BetterInvestments.Listener.InvestmentsUpdaterListener;
 import com.gmail.vacrosdk.modules.Friheden.BetterInvestments.ServerJoin;
 import com.gmail.vacrosdk.modules.Friheden.Renter;
-import com.gmail.vacrosdk.modules.Prison.BetterCells.CellsFunctions;
+import com.gmail.vacrosdk.modules.Prison.BetterCells.CeiReload.CeIReloadCommand;
 import com.gmail.vacrosdk.modules.Prison.BetterCells.ChatListener;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Chests.Commands.ChestCommand;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Chests.Listener.ChestListener;
@@ -73,7 +73,6 @@ import com.gmail.vacrosdk.modules.Prison.PlayerNotifier.Listeners.JoinListener;
 import com.gmail.vacrosdk.modules.Prison.PlayerNotifier.Listeners.LeaveListener;
 import com.gmail.vacrosdk.modules.Prison.PlayerNotifier.PlayerNotifierManager;
 import com.gmail.vacrosdk.modules.Prison.Quest.Commands.QuestCommand;
-import com.gmail.vacrosdk.modules.Prison.vagt.VagtJoinListener;
 import com.gmail.vacrosdk.modules.Prison.vagt.VagtLeaveListener;
 import com.gmail.vacrosdk.plugin.CampCommand;
 import com.gmail.vacrosdk.plugin.DiscordCommand;
@@ -86,7 +85,8 @@ import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.client.resources.ResourceLocation;
 import net.labymod.api.models.addon.annotation.AddonMain;
-import java.io.IOException;
+
+import static com.gmail.vacrosdk.modules.Prison.BetterCells.CellsFunctions.preloadCSV;
 
 @AddonMain
 public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
@@ -94,6 +94,8 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
   private final PlayerNotifierManager playerNotifierPlayerManager = new PlayerNotifierManager(this);
   private final NameTagPlayerManager nameTagPlayerManager = new NameTagPlayerManager(this);
   private final CatchManager catchManager = new CatchManager();
+
+  public Boolean IsOnGuard = false;
 
   private boolean isOnlineOnFreakyville;
 
@@ -109,12 +111,8 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
     Utils.createNotification("FreakyvilleAddon", "Addon er aktiveret! Version: (" + addonInfo().getVersion() + ")", Icon.head(this.labyAPI().getName()));
 
     // Preload CSV here
-    try {
-      CellsFunctions.preloadCSV();  // Preloading the CSV data
-      this.logger().info("CSV data successfully preloaded.");
-    } catch (IOException e) {
-      this.logger().error("Failed to preload CSV data.", e);
-    }
+    preloadCSV();  // Preloading the CSV data
+    this.logger().info("CSV data successfully preloaded.");
 
     isOnlineOnFreakyville = true;
   }
@@ -153,7 +151,7 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
   }
 
   private void handleVagt() {
-    this.registerListener(new VagtJoinListener(this));
+    //this.registerListener(new VagtJoinListener(this));
     this.registerListener(new VagtLeaveListener(this));
   }
 
@@ -183,6 +181,7 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
   }
 
   private void handleCells() {
+    this.registerCommand(new CeIReloadCommand("cereload", this));
     this.registerListener(new ChatListener(this));
   }
 
@@ -388,5 +387,13 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
 
   public void setOnlineOnFreakyville(boolean b) {
     this.isOnlineOnFreakyville = b;
+  }
+
+  public Boolean IsPlayerOnGuard() {
+    return IsOnGuard;
+  }
+
+  public void SetIsPlayerOnGuard(boolean b) {
+    this.IsOnGuard = b;
   }
 }

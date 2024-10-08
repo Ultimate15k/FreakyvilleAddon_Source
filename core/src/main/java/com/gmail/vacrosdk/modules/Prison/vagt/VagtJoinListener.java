@@ -4,7 +4,7 @@ import com.gmail.vacrosdk.FreakyvilleAddon;
 import com.gmail.vacrosdk.utils.Utils;
 import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.event.Subscribe;
-import net.labymod.api.event.client.network.server.ServerJoinEvent;
+import net.labymod.api.event.client.chat.ChatReceiveEvent;
 
 public class VagtJoinListener {
 
@@ -15,22 +15,22 @@ public class VagtJoinListener {
   }
 
   @Subscribe
-  public void onGameTick(ServerJoinEvent event) {
+  public void onGameTick(ChatReceiveEvent event) {
     if (!addon.isOnlineOnFreakyville()) {
       return;
     }
     if (moduleIsDisabled()) {
       return;
     }
-    doCheck();
+    doCheck(event);
   }
 
-  private void doCheck() {
+  private void doCheck(ChatReceiveEvent event) {
     String username = addon.labyAPI().getName();
-    String vagtUsername = addon.configuration().getVagtName().get();
-    if (username.equals(vagtUsername)) {
-      addon.configuration().getVagtSwitch().set(true);
-      Utils.createNotification("BetterTimers", "Modul er slået fra!", Icon.head(vagtUsername));
+    String message = event.chatMessage().getFormattedText();
+    if (message.equalsIgnoreCase("§bDu har modtaget dine buffs :o")) {
+      addon.SetIsPlayerOnGuard(true);
+      Utils.createNotification("BetterTimers", "Modul er slået fra!", Icon.head(username));
     }
   }
 

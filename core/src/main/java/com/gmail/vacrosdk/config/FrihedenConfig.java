@@ -4,14 +4,14 @@ import com.gmail.vacrosdk.config.frihedensubsettings.ApartmentsSubSettings;
 import com.gmail.vacrosdk.config.frihedensubsettings.BetterInvestmentsSubSettings;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.Config;
-import net.labymod.api.configuration.loader.annotation.ParentSwitch;
+import net.labymod.api.configuration.loader.annotation.ShowSettingInParent;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
 
 public class FrihedenConfig extends Config {
 
-  @ParentSwitch
+  @ShowSettingInParent
   @SwitchSetting
   @SpriteSlot(y = 5, x = 3)
   private final ConfigProperty<Boolean> frihedenEnabled = new ConfigProperty<>(false);
@@ -28,20 +28,12 @@ public class FrihedenConfig extends Config {
   @SpriteSlot(x = 3, y = 6)
   private BetterInvestmentsSubSettings InvestmentsEnabled = new BetterInvestmentsSubSettings();
 
-  @SettingSection("betterTimer")
-  @SwitchSetting
-  @SpriteSlot(x = 5)
-  private final ConfigProperty<Boolean> TimerEnabled = new ConfigProperty<>(false);
-
   public ConfigProperty<Boolean> getFrihedenEnabled() {
     return frihedenEnabled;
   }
 
   public ConfigProperty<Boolean> getRenterEnabled() {
     return renterEnabled;
-  }
-  public ConfigProperty<Boolean> getTimerEnabled() {
-    return TimerEnabled;
   }
   public ConfigProperty<Boolean> getApartmentsEnabled() {
     return ApartmentsEnabled.getApartmentsEnabled();

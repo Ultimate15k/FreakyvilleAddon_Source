@@ -17,9 +17,8 @@ public class GlobalTimersCommand extends Command {
 
   @Override
   public boolean execute(String prefix, String[] arguments) {
-    if(moduleIsDisabled() || playerIsOnGuard(addon)) {
-      return false;
-    }
+    if (moduleIsDisabled() || playerIsOnGuard(addon)) return false;
+
     TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
     addon.displayMessage(Component.text("Liste over globale timers:").color(textColor));
     HotSpots.APLUS_BANK.getHotSpot().printGlobal(addon);
@@ -49,7 +48,7 @@ public class GlobalTimersCommand extends Command {
   }
 
   private boolean playerIsOnGuard(FreakyvilleAddon addon) {
-    return addon.configuration().getVagtSwitch().get();
+    return addon.IsPlayerOnGuard();
   }
 
   private boolean moduleIsDisabled() {

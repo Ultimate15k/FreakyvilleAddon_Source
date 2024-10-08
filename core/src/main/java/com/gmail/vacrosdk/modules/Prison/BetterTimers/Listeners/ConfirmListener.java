@@ -50,7 +50,7 @@ public class ConfirmListener {
   }
 
   private boolean playerIsOnGuard(FreakyvilleAddon addon) {
-    return addon.configuration().getVagtSwitch().get();
+    return addon.IsPlayerOnGuard();
   }
 
   private void handlePersonalCoolDown(HotSpot hotSpot, String message) {

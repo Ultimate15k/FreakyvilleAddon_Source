@@ -31,9 +31,6 @@ public class Utils {
         Houseidentifier = value;
       }
     }
-    if (Houseidentifier == null) {
-      return null;
-    }
     return Houseidentifier;
   }
 

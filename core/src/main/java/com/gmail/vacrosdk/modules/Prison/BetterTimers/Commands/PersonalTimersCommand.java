@@ -49,7 +49,7 @@ public class PersonalTimersCommand extends Command {
   }
 
   private boolean playerIsOnGuard(FreakyvilleAddon addon) {
-    return addon.configuration().getVagtSwitch().get();
+    return addon.IsPlayerOnGuard();
   }
 
 

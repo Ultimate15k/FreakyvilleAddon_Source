@@ -1,6 +1,7 @@
 package com.gmail.vacrosdk.config;
 
 import com.gmail.vacrosdk.config.prisonsubsettings.BetterNameTagSubSettings;
+import com.gmail.vacrosdk.config.prisonsubsettings.BettercellsSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.BettertimersSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.EventNotifierSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.GuardSubSettings;
@@ -9,7 +10,7 @@ import com.gmail.vacrosdk.config.prisonsubsettings.QuestSubSettings;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Sounds.NotificationSound;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.Config;
-import net.labymod.api.configuration.loader.annotation.ParentSwitch;
+import net.labymod.api.configuration.loader.annotation.ShowSettingInParent;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
@@ -17,7 +18,7 @@ import net.labymod.api.util.Color;
 
 public class PrisonConfig extends Config {
 
-  @ParentSwitch
+  @ShowSettingInParent
   @SwitchSetting
   @SpriteSlot(y = 5, x = 3)
   private final ConfigProperty<Boolean> prisonEnabled = new ConfigProperty<>(true);
@@ -28,8 +29,7 @@ public class PrisonConfig extends Config {
 
   @SettingSection("BetterCells")
   @SpriteSlot(x = 6)
-  @SwitchSetting
-  private final ConfigProperty<Boolean> betterCells = new ConfigProperty<>(true);
+  private BettercellsSubSettings bettercellsSubSettings = new BettercellsSubSettings();
 
   @SettingSection("PlayerNotifierSettings")
   @SpriteSlot(y = 2, x = 3)
@@ -58,7 +58,11 @@ public class PrisonConfig extends Config {
   }
 
   public ConfigProperty<Boolean> getBetterCells() {
-    return betterCells;
+    return bettercellsSubSettings.getBetterCells();
+  }
+
+  public ConfigProperty<Boolean> getBetterCellsLocation() {
+    return bettercellsSubSettings.getBetterCellsLocation();
   }
 
   //PlayerNotifier

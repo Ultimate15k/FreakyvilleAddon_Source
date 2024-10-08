@@ -71,7 +71,7 @@ public class HotSpot {
   }
 
   private boolean playerIsOnGuard(FreakyvilleAddon addon) {
-    return addon.configuration().getVagtSwitch().get();
+    return addon.IsPlayerOnGuard();
   }
 
   private Boolean timerNotificationsAreEnabled(FreakyvilleAddon addon) {

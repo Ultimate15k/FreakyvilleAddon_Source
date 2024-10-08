@@ -32,7 +32,7 @@ public abstract class TimerWidget extends TextHudWidget<TextHudWidgetConfig> {
       this.text.setState(State.HIDDEN);
       return;
     }
-    if(addon.configuration().getVagtSwitch().get().equals(true)) {
+    if(addon.IsPlayerOnGuard().equals(true)) {
       this.text.setState(State.HIDDEN);
       return;
     }

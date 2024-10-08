@@ -166,8 +166,15 @@
             "description": "Navnet på den account, der vil deaktivere alle timers."
           }
         },
-        "betterCells": {
-          "name": "BetterCells"
+        "bettercellsSubSettings": {
+          "name": "BetterCells",
+          "print": {
+            "name": "Genindlæs Celler",
+            "text": "Klik her!"
+          },
+          "getBetterCellsLocation": {
+            "name": "Celle Lokationer"
+          }
         },
         "playerNotifierSubSettings": {
           "name": "Player Notifer",

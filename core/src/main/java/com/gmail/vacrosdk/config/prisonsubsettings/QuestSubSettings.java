@@ -2,13 +2,13 @@ package com.gmail.vacrosdk.config.prisonsubsettings;
 
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.Config;
-import net.labymod.api.configuration.loader.annotation.ParentSwitch;
+import net.labymod.api.configuration.loader.annotation.ShowSettingInParent;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 
 public class QuestSubSettings extends Config {
 
-  @ParentSwitch
+  @ShowSettingInParent
   @SwitchSetting
   @SpriteSlot(y = 5, x = 3)
   private final ConfigProperty<Boolean> questsEnabled = new ConfigProperty<>(true);

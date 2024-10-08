@@ -28,7 +28,7 @@ public class FreakyvilleConnectionListener implements Listener {
   public void onFreakyvilleDisconnect(ServerDisconnectEvent event) {
     String ip = event.serverData().address().getHost().toLowerCase();
     if(ip.contains("freakyville")) {
-      addon.configuration().getVagtSwitch().set(false);
+      addon.SetIsPlayerOnGuard(false);
       addon.setOnlineOnFreakyville(false);
     }
   }

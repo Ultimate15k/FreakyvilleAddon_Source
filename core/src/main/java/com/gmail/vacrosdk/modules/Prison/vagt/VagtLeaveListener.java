@@ -29,7 +29,7 @@ public class VagtLeaveListener {
     String username = addon.labyAPI().getName();
     String vagtUsername = addon.configuration().getVagtName().get();
     if(username.equals(vagtUsername)) {
-      addon.configuration().getVagtSwitch().set(false);
+      addon.SetIsPlayerOnGuard(false);
       Utils.createNotification("BetterTimers", "Modul er slået til!", Icon.head(vagtUsername));
     }
   }
