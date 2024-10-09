@@ -1,4 +1,12 @@
 {
+  "labymod": {
+    "hudWidgetCategory": {
+      "freakyvilleaddon_category": {
+        "name": "FreakyVilleAddon",
+        "description": "Alle widgets der tilhøre FreakyvilleAddon"
+      }
+    }
+  },
   "freakyvilleaddon": {
     "hudWidget": {
       "A+_Vault_widget": {

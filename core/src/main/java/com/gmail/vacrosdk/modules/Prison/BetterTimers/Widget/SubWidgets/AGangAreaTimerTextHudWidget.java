@@ -20,5 +20,4 @@ public class AGangAreaTimerTextHudWidget extends TimerWidget {
   public String getHotSpotName() {
     return HotSpots.A_GANGAREA.getHotSpot().getHotSpotName();
   }
-
 }

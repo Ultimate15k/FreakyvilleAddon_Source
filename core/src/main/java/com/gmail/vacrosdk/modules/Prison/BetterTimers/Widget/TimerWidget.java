@@ -12,31 +12,38 @@ public abstract class TimerWidget extends TextHudWidget<TextHudWidgetConfig> {
   private TextLine text;
   private final FreakyvilleAddon addon;
 
-  private final Icon hudWidgetIcon;
-
   public TimerWidget(String id, FreakyvilleAddon addon, Icon icon) {
-    super(id);
+    super(id, TextHudWidgetConfig.class);
     this.addon = addon;
-    this.hudWidgetIcon = icon;
+
+    // Automatically bind the widget to the addon's category
+    this.bindCategory(addon.getWidgetCategory());
+
+    // Set the widget icon
+    this.setIcon(icon);
   }
 
   @Override
   public void onUpdate() {
     super.onUpdate();
-    if(getStringTimeLeft() == null || getStringTimeLeft().equals("Kan tages")) {
-      if(this.text == null){
+
+    String timeLeft = getStringTimeLeft();
+
+    if (timeLeft == null || timeLeft.equals("Kan tages")) {
+      if (this.text == null) {
         this.text = this.createLine(getHotSpotName(), "");
-        this.text.setState(State.HIDDEN);
-        return;
       }
       this.text.setState(State.HIDDEN);
       return;
     }
-    if(addon.IsPlayerOnGuard().equals(true)) {
+
+    // Hide if the player is a guard
+    if (addon.IsPlayerOnGuard()) {
       this.text.setState(State.HIDDEN);
       return;
     }
-    this.text.update(getStringTimeLeft());
+
+    this.text.update(timeLeft);
     this.text.setState(State.VISIBLE);
   }
 
@@ -44,18 +51,17 @@ public abstract class TimerWidget extends TextHudWidget<TextHudWidgetConfig> {
   public void load(TextHudWidgetConfig config) {
     super.load(config);
 
-    String stringTimeLeft = getStringTimeLeft();
-    if(stringTimeLeft == null) {
-      stringTimeLeft = "Ukendt";
+    String timeLeft = getStringTimeLeft();
+    if (timeLeft == null) {
+      timeLeft = "Ukendt";
     }
 
-    this.text = super.createLine(getHotSpotName(), stringTimeLeft);
+    // Initialize and set the state of the text
+    this.text = this.createLine(getHotSpotName(), timeLeft);
     this.text.setState(State.VISIBLE);
-
-    this.setIcon(this.hudWidgetIcon);
   }
 
+  // Abstract methods that each specific widget must implement
   public abstract String getStringTimeLeft();
-
   public abstract String getHotSpotName();
 }
