@@ -10,6 +10,9 @@ import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.notification.Notification;
 import net.labymod.api.util.MethodOrder;
+import net.labymod.api.util.logging.Logging;
+
+import static com.gmail.vacrosdk.modules.Prison.BetterCells.CellsFunctions.preloadCSV;
 
 public class BettercellsSubSettings extends Config {
 
@@ -24,10 +27,12 @@ public class BettercellsSubSettings extends Config {
   @SpriteSlot(x = 6)
   @ButtonSetting
   public void print() {
+    String result = preloadCSV();
     Notification.Builder builder = Notification.builder()
-        .title(Component.text("INFO"))
-        .text(Component.text("Geninlæser celler"));
+        .title(Component.text("§6Genindlæser celler."))
+        .text(Component.text(result));
     Laby.labyAPI().notificationController().push(builder.build());
+    Logging.getLogger().info("Reloading CSV");
   }
 
   public ConfigProperty<Boolean> getBetterCells() {
