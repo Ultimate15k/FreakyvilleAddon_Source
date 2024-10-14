@@ -28,13 +28,13 @@ public class VagtJoinListener {
   private void doCheck(ChatReceiveEvent event) {
     String username = addon.labyAPI().getName();
     String message = event.chatMessage().getFormattedText();
-    if (message.equalsIgnoreCase("§bDu har modtaget dine buffs :o")) {
+    if (message.contains("&bDu har modtaget dine buffs :o")) {
       addon.SetIsPlayerOnGuard(true);
       Utils.createNotification("BetterTimers", "Modul er slået fra!", Icon.head(username));
     }
   }
 
   private boolean moduleIsDisabled() {
-    return addon.configuration().getAutomaticSwitch().get().equals(false) || addon.configuration().enabled().get().equals(false)|| addon.configuration().getPrisonEnabled().get().equals(false);
+    return addon.IsPlayerOnGuard().equals(true) || addon.configuration().enabled().get().equals(false)|| addon.configuration().getPrisonEnabled().get().equals(false);
   }
 }

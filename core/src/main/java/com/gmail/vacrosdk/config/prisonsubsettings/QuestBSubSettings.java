@@ -11,23 +11,23 @@ public class QuestBSubSettings extends Config {
 
   @SwitchSetting
   @SettingRequires("questsEnabled")
-  @SpriteSlot(y = 6)
+  @SpriteSlot(y = 2, x = 2)
   @ShowSettingInParent
   private final ConfigProperty<Boolean> BQuestEnabled = new ConfigProperty<>(true);
 
   @SwitchSetting
   @SettingRequires("questsEnabled")
-  @SpriteSlot(y = 6, x = 1)
+  @SpriteSlot(y = 5, x = 2)
   private final ConfigProperty<Boolean> mrxEnabled = new ConfigProperty<>(true);
 
   @SwitchSetting
   @SettingRequires("questsEnabled")
-  @SpriteSlot(y = 5, x = 7)
+  @SpriteSlot(y = 4, x = 7)
   private final ConfigProperty<Boolean> finnfiskerEnabled = new ConfigProperty<>(true);
 
   @SwitchSetting
   @SettingRequires("questsEnabled")
-  @SpriteSlot(y = 6, x = 2)
+  @SpriteSlot(y = 5, x = 3)
   private final ConfigProperty<Boolean> pallevagtEnabled = new ConfigProperty<>(true);
 
   public ConfigProperty<Boolean> getBQuestEnabled() {

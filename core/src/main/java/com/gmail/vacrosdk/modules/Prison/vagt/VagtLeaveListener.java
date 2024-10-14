@@ -14,6 +14,7 @@ public class VagtLeaveListener {
     this.addon = addon;
   }
 
+  @SuppressWarnings("unused")
   @Subscribe
   public void onGameTick(ServerDisconnectEvent event) {
     if (!addon.isOnlineOnFreakyville()) {
@@ -27,14 +28,13 @@ public class VagtLeaveListener {
 
   private void doCheck() {
     String username = addon.labyAPI().getName();
-    String vagtUsername = addon.configuration().getVagtName().get();
-    if(username.equals(vagtUsername)) {
+    if(addon.IsPlayerOnGuard().equals(true)) {
       addon.SetIsPlayerOnGuard(false);
-      Utils.createNotification("BetterTimers", "Modul er slået til!", Icon.head(vagtUsername));
+      Utils.createNotification("BetterTimers", "Modul er slået til!", Icon.head(username));
     }
   }
 
   private boolean moduleIsDisabled() {
-    return addon.configuration().getAutomaticSwitch().get().equals(false) || addon.configuration().enabled().get().equals(false)|| addon.configuration().getPrisonEnabled().get().equals(false);
+    return addon.IsPlayerOnGuard().equals(false) || addon.configuration().enabled().get().equals(false)|| addon.configuration().getPrisonEnabled().get().equals(false);
   }
 }

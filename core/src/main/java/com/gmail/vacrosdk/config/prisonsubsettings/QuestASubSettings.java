@@ -11,18 +11,18 @@ public class QuestASubSettings extends Config {
 
   @SwitchSetting
   @SettingRequires("questsEnabled")
-  @SpriteSlot(y = 6)
+  @SpriteSlot(y = 2, x = 1)
   @ShowSettingInParent
   private final ConfigProperty<Boolean> AQuestEnabled = new ConfigProperty<>(true);
 
   @SwitchSetting
   @SettingRequires("questsEnabled")
-  @SpriteSlot(y = 6)
+  @SpriteSlot(y = 5, x = 1)
   private final ConfigProperty<Boolean> gertvagtEnabled = new ConfigProperty<>(true);
 
   @SwitchSetting
   @SettingRequires("questsEnabled")
-  @SpriteSlot(y = 5, x = 6)
+  @SpriteSlot(y = 4, x = 6)
   private final ConfigProperty<Boolean> donvitoEnabled = new ConfigProperty<>(true);
 
   public ConfigProperty<Boolean> getGertvagtEnabled() {

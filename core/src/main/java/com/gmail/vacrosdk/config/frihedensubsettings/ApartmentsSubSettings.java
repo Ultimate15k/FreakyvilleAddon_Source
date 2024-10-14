@@ -10,10 +10,13 @@ public class ApartmentsSubSettings extends Config {
 
   @ShowSettingInParent
   @SwitchSetting
+  @SpriteSlot(x = 2)
   private ConfigProperty<Boolean> enabled = new ConfigProperty<>(false);
+
   @SwitchSetting
-  @SpriteSlot(x = 6, y = 6)
+  @SpriteSlot(y = 5, x = 4)
   private final ConfigProperty<Boolean> ReqEnabled = new ConfigProperty<>(true);
+
   @SwitchSetting
   @SpriteSlot(y = 2)
   private final ConfigProperty<Boolean> DesEnabled = new ConfigProperty<>(true);

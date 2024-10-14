@@ -11,17 +11,17 @@ public class BetterTimersColorSettings extends Config {
 
   @SettingRequires("betterTimers")
   @ColorPickerSetting(chroma = true)
-  @SpriteSlot(y = 1, x = 1)
+  @SpriteSlot(y = 1)
   private final ConfigProperty<Color> mainTimerColor = new ConfigProperty<>(Color.ofRGB(9, 58, 142, 70));
 
   @SettingRequires("betterTimers")
   @ColorPickerSetting(chroma = true)
-  @SpriteSlot(y = 1, x = 1)
+  @SpriteSlot(y = 1)
   private final ConfigProperty<Color> knownTimerColor = new ConfigProperty<>(Color.ofRGB(9, 58, 142, 70));
 
   @SettingRequires("betterTimers")
   @ColorPickerSetting(chroma = true)
-  @SpriteSlot(y = 1, x = 1)
+  @SpriteSlot(y = 1)
   private final ConfigProperty<Color> unknownTimerColor = new ConfigProperty<>(Color.ofRGB(9, 58, 142, 70));
 
   public ConfigProperty<Color> getMainTimerColor() {

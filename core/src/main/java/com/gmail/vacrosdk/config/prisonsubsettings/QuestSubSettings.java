@@ -10,11 +10,11 @@ public class QuestSubSettings extends Config {
 
   @ShowSettingInParent
   @SwitchSetting
-  @SpriteSlot(y = 5, x = 3)
+  @SpriteSlot(y = 5)
   private final ConfigProperty<Boolean> questsEnabled = new ConfigProperty<>(true);
-  @SpriteSlot(y = 5, x = 5)
+  @SpriteSlot(y = 2, x = 1)
   private final QuestASubSettings questasubSettings = new QuestASubSettings();
-  @SpriteSlot(y = 5, x = 4)
+  @SpriteSlot(y = 2, x = 2)
   private final QuestBSubSettings questbsubSettings = new QuestBSubSettings();
 
 

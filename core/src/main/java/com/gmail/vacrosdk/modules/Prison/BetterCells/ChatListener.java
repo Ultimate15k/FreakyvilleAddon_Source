@@ -12,6 +12,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,16 +32,14 @@ public class ChatListener {
 
   @Subscribe
   public void onGameTick(ChatReceiveEvent event) {
-    if(!addon.isOnlineOnFreakyville()) {
+    if (!addon.isOnlineOnFreakyville() || IsModuleDisabled()) {
       return;
     }
-    if(betterCampingIsDisabled()) {
-      return;
-    }
+
     String message = event.chatMessage().getPlainText();
     if (message.contains("------------={ ") && (message.contains(" }=------------"))) {
       handleMessage(event, message);
-    } else if (message.contains("Blok: ")) {
+    } else if (message.startsWith("Blok: ") && !IsModuleDesDisabled()) {
       handleMessage2(event, message);
     }
   }
@@ -88,7 +87,7 @@ public class ChatListener {
     EmbedObject embed = new EmbedObject();
     embed.setTitle("FreakyvilleAddon - Celle fejl");
     embed.setColor(Color.RED);
-    embed.addField("Navn:", addon.labyAPI().minecraft().getClientPlayer().getName(), false);
+    embed.addField("Navn:", Objects.requireNonNull(addon.labyAPI().minecraft().getClientPlayer()).getName(), false);
     embed.addField("Version:", String.valueOf(addon.addonInfo().getVersion()), false);
     embed.addField("Identifier:", matcher.group(1), false);
     embed.addField("Number:", matcher.group(2), false);
@@ -108,8 +107,12 @@ public class ChatListener {
   }
 
 
-  private boolean betterCampingIsDisabled() {
+  private boolean IsModuleDisabled() {
     return addon.configuration().getBetterCells().get().equals(false) || addon.configuration().enabled().get().equals(false) || addon.configuration().getPrisonEnabled().get().equals(false);
+  }
+
+  private boolean IsModuleDesDisabled() {
+    return addon.configuration().getBetterCellsLocation().get().equals(false) || addon.configuration().enabled().get().equals(false) || addon.configuration().getPrisonEnabled().get().equals(false);
   }
 
 

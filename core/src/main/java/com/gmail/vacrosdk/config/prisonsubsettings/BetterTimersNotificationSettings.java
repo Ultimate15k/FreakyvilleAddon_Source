@@ -11,17 +11,17 @@ public class BetterTimersNotificationSettings extends Config {
 
   @SettingRequires("betterTimers")
   @SwitchSetting
-  @SpriteSlot(y = 1, x = 3)
+  @SpriteSlot(x = 7)
   private final ConfigProperty<Boolean> betterTimersMessage = new ConfigProperty<>(true);
 
   @SettingRequires("betterTimers")
   @SwitchSetting()
-  @SpriteSlot(y = 1, x = 4)
+  @SpriteSlot(x = 5)
   private final ConfigProperty<Boolean> timerNotification = new ConfigProperty<>(true);
 
   @SettingRequires("timerNotification")
   @SliderSetting(min=1, max=5)
-  @SpriteSlot(y = 1, x = 5)
+  @SpriteSlot(x = 6)
   private final ConfigProperty<Integer> timerNotificationSlider = new ConfigProperty<>(2);
 
   public ConfigProperty<Boolean> getBetterTimersMessage() {

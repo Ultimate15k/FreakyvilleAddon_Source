@@ -3,10 +3,17 @@ package com.gmail.vacrosdk.config.prisonsubsettings;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.Config;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
+import net.labymod.api.configuration.loader.annotation.SpriteTexture;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingRequires;
 
+@SpriteTexture("settings/icons2.png")
 public class EventNotifierEventsSubSettings extends Config {
+
+  @SwitchSetting
+  @SettingRequires("eventNotifier")
+  @SpriteSlot(x = 5)
+  private final ConfigProperty<Boolean> guardsDisabledVaultsEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
@@ -20,87 +27,82 @@ public class EventNotifierEventsSubSettings extends Config {
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 4, x = 2)
+  @SpriteSlot(x = 2)
   private final ConfigProperty<Boolean> bPlusVaultEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(x = 2)
+  @SpriteSlot(x = 3)
   private final ConfigProperty<Boolean> bVaultEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(x = 3)
+  @SpriteSlot(x = 4)
   private final ConfigProperty<Boolean> cVaultEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 4)
+  @SpriteSlot(y = 1, x = 2)
   private final ConfigProperty<Boolean> bPlusGangAreaEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(x = 3, y = 4)
+  @SpriteSlot(y = 1, x = 3)
   private final ConfigProperty<Boolean> bGangAreaEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 2, x = 7)
+  @SpriteSlot(y = 1, x = 1)
   private final ConfigProperty<Boolean> aGangAreaEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3)
+  @SpriteSlot(y = 1)
   private final ConfigProperty<Boolean> aPlusGangAreaEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 2, x = 5)
+  @SpriteSlot(y = 1, x = 5)
   private final ConfigProperty<Boolean> rockerTorbenEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3, x = 2)
-  private final ConfigProperty<Boolean> guardsDisabledVaultsEvent = new ConfigProperty<>(false);
-
-  @SwitchSetting
-  @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 4, x = 1)
+  @SpriteSlot(y = 1, x = 4)
   private final ConfigProperty<Boolean> pvpChestEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3, x = 6)
+  @SpriteSlot(y = 1, x = 6)
   private final ConfigProperty<Boolean> stringCaughtEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3, x = 6)
+  @SpriteSlot(y = 1, x = 4)
   private final ConfigProperty<Boolean> BoLootEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 4)
+  @SpriteSlot(y = 1, x = 7)
   private final ConfigProperty<Boolean> headEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3, x = 7)
+  @SpriteSlot(y = 2, x = 6)
   private final ConfigProperty<Boolean> guardKillEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 5)
+  @SpriteSlot(y = 3)
   private final ConfigProperty<Boolean> FlipNewOfferEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 5, x = 1)
+  @SpriteSlot(y = 3, x = 1)
   private final ConfigProperty<Boolean> FlipWinningEvent = new ConfigProperty<>(false);
 
   @SwitchSetting
   @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 5, x = 2)
+  @SpriteSlot(y = 3, x = 2)
   private final ConfigProperty<Boolean> FlipLosingEvent = new ConfigProperty<>(false);
 
   public ConfigProperty<Boolean> getaPlusVaultEvent() {

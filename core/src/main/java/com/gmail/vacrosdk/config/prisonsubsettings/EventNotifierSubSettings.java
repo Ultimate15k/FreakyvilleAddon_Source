@@ -11,11 +11,11 @@ public class EventNotifierSubSettings extends Config {
 
   @ShowSettingInParent
   @SwitchSetting
-  @SpriteSlot(y = 1, x = 4)
+  @SpriteSlot(x = 5)
   private final ConfigProperty<Boolean> eventNotifier = new ConfigProperty<>(true);
-  @SpriteSlot(y = 3, x = 4)
+  @SpriteSlot(y = 2, x = 6)
   private final EventNotifierSoundSubSettings eventNotifierSoundSubSettings = new EventNotifierSoundSubSettings();
-  @SpriteSlot(y = 4, x = 1)
+  @SpriteSlot(y = 3, x = 4)
   private final EventNotifierEventsSubSettings eventNotifierEventsSubSettings = new EventNotifierEventsSubSettings();
 
 

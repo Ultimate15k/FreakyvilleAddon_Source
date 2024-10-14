@@ -15,24 +15,24 @@ import net.labymod.api.util.Color;
 public class FreakyvilleConfig extends AddonConfig {
 
   @SwitchSetting
-  @SpriteSlot(x = 7)
+  @SpriteSlot()
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
   @SettingSection("Prison")
-  @SpriteSlot(x = 6)
+  @SpriteSlot(x = 1)
   private PrisonConfig prisonConfig = new PrisonConfig();
 
   @SettingSection("Friheden")
-  @SpriteSlot(x = 4, y = 6)
+  @SpriteSlot(x = 2)
   private FrihedenConfig frihedenConfig = new FrihedenConfig();
 
   @SettingSection("Misc")
   @SwitchSetting
-  @SpriteSlot(y = 6, x = 7)
+  @SpriteSlot(x = 3)
   private final ConfigProperty<Boolean> discordDisabled = new ConfigProperty<>(true);
 
   @SwitchSetting
-  @SpriteSlot(y = 7)
+  @SpriteSlot(x = 4)
   private final ConfigProperty<Boolean> fileAccess = new ConfigProperty<>(true);
 
   @Override
@@ -150,21 +150,6 @@ public class FreakyvilleConfig extends AddonConfig {
 
   public ConfigProperty<Boolean> getUnderlineFont() {
     return prisonConfig.getUnderlineFont();
-  }
-
-
-
-  //Guard
-  public ConfigProperty<Boolean> getVagtSwitch() {
-    return prisonConfig.getVagtSwitch();
-  }
-
-  public ConfigProperty<String> getVagtName() {
-    return prisonConfig.getVagtName();
-  }
-
-  public ConfigProperty<Boolean> getAutomaticSwitch() {
-    return prisonConfig.getAutomaticSwitch();
   }
 
   //EventNotifier

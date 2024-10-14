@@ -12,9 +12,9 @@ public class BetterNameTagSubSettings extends Config {
   @ShowSettingInParent
   @SwitchSetting
   private final ConfigProperty<Boolean> nameTags = new ConfigProperty<>(true);
-  @SpriteSlot(y = 1, x = 1)
-  private BetterNameTagsColorSettings betterNameTagsColorSettings = new BetterNameTagsColorSettings();
   @SpriteSlot(y = 1)
+  private BetterNameTagsColorSettings betterNameTagsColorSettings = new BetterNameTagsColorSettings();
+  @SpriteSlot(y = 1, x = 4)
   private BetterNameTagsFontSettings betterNameTagsFontSettings = new BetterNameTagsFontSettings();
 
   public ConfigProperty<Boolean> getNameTags() {

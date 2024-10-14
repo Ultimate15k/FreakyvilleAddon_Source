@@ -10,9 +10,11 @@ public class BetterInvestmentsSubSettings extends Config {
 
   @ShowSettingInParent
   @SwitchSetting
+  @SpriteSlot(y = 4, x = 3)
   private ConfigProperty<Boolean> enabled = new ConfigProperty<>(false);
+
   @SwitchSetting
-  @SpriteSlot(x = 6, y = 6)
+  @SpriteSlot(y = 5, x = 4)
   private final ConfigProperty<Boolean> joinTitle = new ConfigProperty<>(false);
 
   public ConfigProperty<Boolean> getBetterInvestmentsEnabled() {

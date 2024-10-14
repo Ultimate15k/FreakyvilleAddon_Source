@@ -4,7 +4,6 @@ import com.gmail.vacrosdk.config.prisonsubsettings.BetterNameTagSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.BettercellsSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.BettertimersSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.EventNotifierSubSettings;
-import com.gmail.vacrosdk.config.prisonsubsettings.GuardSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.PlayerNotifierSubSettings;
 import com.gmail.vacrosdk.config.prisonsubsettings.QuestSubSettings;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Sounds.NotificationSound;
@@ -20,15 +19,10 @@ public class PrisonConfig extends Config {
 
   @ShowSettingInParent
   @SwitchSetting
-  @SpriteSlot(y = 5, x = 3)
   private final ConfigProperty<Boolean> prisonEnabled = new ConfigProperty<>(true);
 
-  @SettingSection("VagtSettings")
-  @SpriteSlot(y = 2, x = 6)
-  private GuardSubSettings guardSubSettings = new GuardSubSettings();
-
   @SettingSection("BetterCells")
-  @SpriteSlot(x = 6)
+  @SpriteSlot(x = 1)
   private BettercellsSubSettings bettercellsSubSettings = new BettercellsSubSettings();
 
   @SettingSection("PlayerNotifierSettings")
@@ -36,19 +30,19 @@ public class PrisonConfig extends Config {
   private PlayerNotifierSubSettings playerNotifierSubSettings = new PlayerNotifierSubSettings();
 
   @SettingSection("BetterTimers")
-  @SpriteSlot(x = 5)
+  @SpriteSlot(y = 3, x = 6)
   private BettertimersSubSettings bettertimersSubSettings = new BettertimersSubSettings();
 
   @SettingSection("BetterNameTags")
-  @SpriteSlot(y = 1, x = 2)
+  @SpriteSlot(y = 1, x = 3)
   private BetterNameTagSubSettings nameTagsSubSettings = new BetterNameTagSubSettings();
 
   @SettingSection("EventNotifier")
-  @SpriteSlot(y = 1, x = 4)
+  @SpriteSlot(x = 5)
   private EventNotifierSubSettings eventNotifierSubSettings = new EventNotifierSubSettings();
 
   @SettingSection("Quests")
-  @SpriteSlot(y = 5, x = 3)
+  @SpriteSlot(y = 5)
   private QuestSubSettings questSubSettings = new QuestSubSettings();
 
 
@@ -138,19 +132,6 @@ public class PrisonConfig extends Config {
 
   public ConfigProperty<Boolean> getUnderlineFont() {
     return nameTagsSubSettings.getUnderline();
-  }
-
-  //Guard
-  public ConfigProperty<Boolean> getVagtSwitch() {
-    return guardSubSettings.getVagtSwitch();
-  }
-
-  public ConfigProperty<String> getVagtName() {
-    return guardSubSettings.getVagtName();
-  }
-
-  public ConfigProperty<Boolean> getAutomaticSwitch() {
-    return guardSubSettings.getAutomaticSwitch();
   }
 
   //EventNotifier

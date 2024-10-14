@@ -13,19 +13,20 @@ public class FrihedenConfig extends Config {
 
   @ShowSettingInParent
   @SwitchSetting
-  @SpriteSlot(y = 5, x = 3)
+  @SpriteSlot(x = 2)
   private final ConfigProperty<Boolean> frihedenEnabled = new ConfigProperty<>(false);
+
   @SettingSection("betterapartments")
-  @SpriteSlot(x = 4, y = 6)
+  @SpriteSlot(x = 2)
   private ApartmentsSubSettings ApartmentsEnabled = new ApartmentsSubSettings();
 
   @SettingSection("betterRenter")
   @SwitchSetting
-  @SpriteSlot(x = 5, y = 6)
+  @SpriteSlot(y = 4, x = 5)
   private final ConfigProperty<Boolean> renterEnabled = new ConfigProperty<>(false);
 
   @SettingSection("betterinvestments")
-  @SpriteSlot(x = 3, y = 6)
+  @SpriteSlot(y = 4, x = 3)
   private BetterInvestmentsSubSettings InvestmentsEnabled = new BetterInvestmentsSubSettings();
 
   public ConfigProperty<Boolean> getFrihedenEnabled() {

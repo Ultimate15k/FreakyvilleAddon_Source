@@ -12,19 +12,18 @@ public class PlayerNotifierSubSettings extends Config {
 
   @ShowSettingInParent
   @SwitchSetting
-  @SpriteSlot(y = 2, x = 3)
   private final ConfigProperty<Boolean> playerNotifier = new ConfigProperty<>(true);
 
   @ColorPickerSetting
-  @SpriteSlot(y = 1, x = 1)
+  @SpriteSlot(y = 1)
   private final ConfigProperty<Color> playerNotifierColor = new ConfigProperty<>(Color.ofRGB(9, 58, 142, 70));
 
   @SwitchSetting
-  @SpriteSlot(y = 1, x = 6)
+  @SpriteSlot(y = 1, x = 1)
   private final ConfigProperty<Boolean> joinNotifier = new ConfigProperty<>(true);
 
   @SwitchSetting
-  @SpriteSlot(y = 1, x = 7)
+  @SpriteSlot(y = 1, x = 2)
   private final ConfigProperty<Boolean> leaveNotifier = new ConfigProperty<>(true);
 
 

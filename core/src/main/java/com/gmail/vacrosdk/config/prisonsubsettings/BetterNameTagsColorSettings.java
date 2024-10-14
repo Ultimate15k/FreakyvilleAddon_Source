@@ -11,12 +11,12 @@ public class BetterNameTagsColorSettings extends Config {
 
   @SettingRequires("nameTags")
   @ColorPickerSetting(chroma = true)
-  @SpriteSlot(y = 1, x = 1)
+  @SpriteSlot(y = 1)
   private final ConfigProperty<Color> nameTagColor = new ConfigProperty<>(Color.ofRGB(9, 58, 142, 70));
 
   @SettingRequires("nameTags")
   @ColorPickerSetting(chroma = true)
-  @SpriteSlot(y = 1, x = 1)
+  @SpriteSlot(y = 1)
   private final ConfigProperty<Color> nameTagMessageColor = new ConfigProperty<>(Color.ofRGB(9, 58, 142, 70));
 
   public ConfigProperty<Color> getNameTagColor() {

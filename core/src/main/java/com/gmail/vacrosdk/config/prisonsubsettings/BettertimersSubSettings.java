@@ -12,15 +12,19 @@ public class BettertimersSubSettings extends Config {
   @ShowSettingInParent
   @SwitchSetting
   private final ConfigProperty<Boolean> betterTimers = new ConfigProperty<>(true);
-  @SpriteSlot(y = 1, x = 1)
+
+  @SpriteSlot(y = 1)
   private final BetterTimersColorSettings betterTimersColorSettings = new BetterTimersColorSettings();
-  @SpriteSlot(y = 1, x = 3)
+
+  @SpriteSlot(x = 7)
   private final BetterTimersNotificationSettings betterTimersNotificationSettings = new BetterTimersNotificationSettings();
+
   @SwitchSetting
-  @SpriteSlot(y = 7, x = 7)
+  @SpriteSlot(y = 1, x = 5)
   private final ConfigProperty<Boolean> KitHeadTimer = new ConfigProperty<>(false);
+
   @SwitchSetting
-  @SpriteSlot(y = 4, x = 1)
+  @SpriteSlot(y = 3, x = 4)
   private final ConfigProperty<Boolean> ChestTimer = new ConfigProperty<>(false);
 
   public ConfigProperty<Boolean> getBetterTimers() {

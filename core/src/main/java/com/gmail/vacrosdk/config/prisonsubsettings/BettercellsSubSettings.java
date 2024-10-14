@@ -21,10 +21,11 @@ public class BettercellsSubSettings extends Config {
   private final ConfigProperty<Boolean> getBetterCells = new ConfigProperty<>(true);
 
   @SwitchSetting
+  @SpriteSlot(x = 1)
   private final ConfigProperty<Boolean> getBetterCellsLocation = new ConfigProperty<>(true);
 
   @MethodOrder(after = "getBetterCellsLocation")
-  @SpriteSlot(x = 6)
+  @SpriteSlot(y = 3, x = 7)
   @ButtonSetting
   public void print() {
     String result = preloadCSV();

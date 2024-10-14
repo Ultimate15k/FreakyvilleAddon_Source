@@ -10,27 +10,27 @@ public class BetterNameTagsFontSettings extends Config {
 
   @SettingRequires("nameTags")
   @SwitchSetting
-  @SpriteSlot(y = 1)
+  @SpriteSlot(y = 1, x = 4)
   private final ConfigProperty<Boolean> boldFont = new ConfigProperty<>(false);
 
   @SettingRequires("nameTags")
   @SwitchSetting
-  @SpriteSlot(y = 4, x = 4)
+  @SpriteSlot(y = 3)
   private final ConfigProperty<Boolean> underline = new ConfigProperty<>(false);
 
   @SettingRequires("nameTags")
   @SwitchSetting
-  @SpriteSlot(y = 4, x = 7)
+  @SpriteSlot(y = 3, x = 3)
   private final ConfigProperty<Boolean> magic = new ConfigProperty<>(false);
 
   @SettingRequires("nameTags")
   @SwitchSetting
-  @SpriteSlot(y = 4, x = 6)
+  @SpriteSlot(y = 3, x = 2)
   private final ConfigProperty<Boolean> strike = new ConfigProperty<>(false);
 
   @SettingRequires("nameTags")
   @SwitchSetting
-  @SpriteSlot(y = 4, x = 5)
+  @SpriteSlot(y = 3, x = 1)
   private final ConfigProperty<Boolean> italic = new ConfigProperty<>(false);
 
 
