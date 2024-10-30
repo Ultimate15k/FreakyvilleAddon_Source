@@ -19,17 +19,19 @@ public class KitStatsListener {
   public void onGameTick(ChatReceiveEvent event) {
     if (!isModuleDisabled()) {
       String text = event.chatMessage().getFormattedText();
-      if(text.contains("$bDu vandt et head i Kit Head!")) {
-        String playerName = addon.labyAPI().getName();
-        updatePlayerData(playerName,"stats_heads_kit", 0);
-        Logging.getLogger().info("Player data saved for: " + playerName);
-      } else if(text.contains("$bDer droppede sgu et head")){
-        String playerName = addon.labyAPI().getName();
-        updatePlayerData(playerName,"stats_heads_vv", 0);
-        Logging.getLogger().info("Player data saved for: " + playerName);
-      }
+      checkAndSavePlayerData(text, "$bDu vandt et head i Kit Head!", "stats_heads_kit");
+      checkAndSavePlayerData(text, "$bDer droppede sgu et head", "stats_heads_vv");
     }
   }
+
+  private void checkAndSavePlayerData(String text, String messagePattern, String statKey) {
+    if (text.contains(messagePattern)) {
+      String playerName = addon.labyAPI().getName();
+      updatePlayerData(playerName, statKey, 0);
+      Logging.getLogger().info("Player data saved for: " + playerName);
+    }
+  }
+
 
   private boolean isModuleDisabled() {
     return addon.configuration().getKitHeadTimer().get().equals(false) ||

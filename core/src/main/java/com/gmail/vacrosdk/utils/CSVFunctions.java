@@ -1,4 +1,4 @@
-package com.gmail.vacrosdk.modules.Prison.BetterCells;
+package com.gmail.vacrosdk.utils;
 
 import net.labymod.api.util.logging.Logging;
 import okhttp3.OkHttpClient;
@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CellsFunctions {
+public class CSVFunctions {
 
   private static final String CSV_URL = "https://raw.githubusercontent.com/Ultimate15k/FreakyvilleAddon-Data/refs/heads/main/Cell_Data.csv";
   private static List<CSVRecord> csvRecords = new ArrayList<>(); // Store CSV records in memory

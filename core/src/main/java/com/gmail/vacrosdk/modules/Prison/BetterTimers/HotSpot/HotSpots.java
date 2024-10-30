@@ -94,15 +94,6 @@ public enum HotSpots {
       5,
       5,
       120)),
-  C_MINE(new HotSpot(
-      "C Minen",
-      MessageCatchLanguage.C_MINE_CATCH,
-      MessageCatchLanguage.C_MINE_CONFIRMATION,
-      MessageCatchLanguage.C_MINE_UPDATE,
-      15,
-      15,
-      3,
-      15)),
   A_ROCKER_TORBEN(new HotSpot(
       "A Rocker Torben",
       MessageCatchLanguage.ROCKER_TORBEN_CATCH,

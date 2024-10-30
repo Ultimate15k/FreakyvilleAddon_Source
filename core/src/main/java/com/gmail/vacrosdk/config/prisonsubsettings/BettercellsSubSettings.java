@@ -12,7 +12,7 @@ import net.labymod.api.notification.Notification;
 import net.labymod.api.util.MethodOrder;
 import net.labymod.api.util.logging.Logging;
 
-import static com.gmail.vacrosdk.modules.Prison.BetterCells.CellsFunctions.preloadCSV;
+import static com.gmail.vacrosdk.utils.CSVFunctions.preloadCSV;
 
 public class BettercellsSubSettings extends Config {
 

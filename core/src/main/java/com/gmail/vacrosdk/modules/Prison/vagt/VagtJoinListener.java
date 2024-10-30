@@ -28,7 +28,7 @@ public class VagtJoinListener {
   private void doCheck(ChatReceiveEvent event) {
     String username = addon.labyAPI().getName();
     String message = event.chatMessage().getFormattedText();
-    if (message.contains("&bDu har modtaget dine buffs :o")) {
+    if (message.contains("§bDu har modtaget dine buffs :o")) {
       addon.SetIsPlayerOnGuard(true);
       Utils.createNotification("BetterTimers", "Modul er slået fra!", Icon.head(username));
     }

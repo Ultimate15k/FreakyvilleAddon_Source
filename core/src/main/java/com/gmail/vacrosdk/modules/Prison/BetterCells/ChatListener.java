@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.gmail.vacrosdk.modules.Prison.BetterCells.CellsFunctions.getCellDetails;
+import static com.gmail.vacrosdk.utils.CSVFunctions.getCellDetails;
 
 public class ChatListener {
 

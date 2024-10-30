@@ -70,9 +70,4 @@ public class MessageCatchLanguage {
   public static final String FLIPMAN_NEW_OFFER = "§6[§e§lItemFlip]§a§l Du har modtaget et modbud på et af dine multi flips"; //§6[§e§lItemFlip§6] §aDu har modtaget et modbud på et af dine multi flips
   public static final String FLIPMAN_WON = "§6[§e§lItemFlip§6]§e §a§lTillykke, du har vundet flippet!";
   public static final String FLIPMAN_LOST = "§6[§e§lItemFlip]§c§l Desværre, du har tabt flippet";
-
-
-  public static String C_MINE_UPDATE = null;
-  public static String C_MINE_CONFIRMATION = "cmine1 vil blive resat om 1 sekunder";
-  public static String C_MINE_CATCH = "cmine1 vil blive resat om 3 sekunder.";
 }

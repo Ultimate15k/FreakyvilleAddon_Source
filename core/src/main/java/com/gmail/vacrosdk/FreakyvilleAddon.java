@@ -87,7 +87,7 @@ import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.client.resources.ResourceLocation;
 import net.labymod.api.models.addon.annotation.AddonMain;
 
-import static com.gmail.vacrosdk.modules.Prison.BetterCells.CellsFunctions.preloadCSV;
+import static com.gmail.vacrosdk.utils.CSVFunctions.preloadCSV;
 
 @AddonMain
 public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
@@ -113,7 +113,6 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
 
     Utils.createNotification("FreakyvilleAddon", "Addon er aktiveret! Version: (" + addonInfo().getVersion() + ")", Icon.head(this.labyAPI().getName()));
 
-    // Preload CSV here
     preloadCSV();  // Preloading the CSV data
     this.logger().info("CSV data successfully preloaded.");
 

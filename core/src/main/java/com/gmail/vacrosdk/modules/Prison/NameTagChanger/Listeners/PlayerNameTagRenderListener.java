@@ -35,7 +35,7 @@ public class PlayerNameTagRenderListener {
     if(playerManager.isEmpty()) {
       return;
     }
-    NetworkPlayerInfo networkPlayerInfo = event.playerInfo();
+    NetworkPlayerInfo networkPlayerInfo = event.getPlayerInfo();
     if(networkPlayerInfo == null) {
       return;
     }
@@ -55,7 +55,7 @@ public class PlayerNameTagRenderListener {
       userName = FontType.BOLD.getColorCode() + userName;
     }
     if(addon.configuration().getUnderlineFont().get()) {
-      userName = FontType.ITALIC.getColorCode() + userName;
+      userName = FontType.UNDER_LINE.getColorCode() + userName;
     }
     if(addon.configuration().getItalicFont().get()) {
       userName = FontType.ITALIC.getColorCode() + userName;
