@@ -33,7 +33,7 @@ public class FreakyvilleConfig extends AddonConfig {
 
   @SwitchSetting
   @SpriteSlot(x = 4)
-  private final ConfigProperty<Boolean> fileAccess = new ConfigProperty<>(true);
+  private final ConfigProperty<Boolean> fileAccess = new ConfigProperty<>(false);
 
   @Override
   public ConfigProperty<Boolean> enabled() {
