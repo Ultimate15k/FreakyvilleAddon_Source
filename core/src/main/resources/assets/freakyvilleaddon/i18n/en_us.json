@@ -31,8 +31,8 @@
         "name": "Rocker torben timer"
       },
       "Vaults_disabled_widget": {
-        "name": "A+/A VV slået fra",
-        "description": "En timer over cooldownen, når en vagt slår A+/A vagtvault fra."
+        "name": "A+/A/B+ VV slået fra",
+        "description": "En timer over cooldownen, når en vagt slår A+/A/B+ vagtvault fra."
       },
       "B_PvPChest_Timer": {
         "name": "B hemmelig kiste timer",

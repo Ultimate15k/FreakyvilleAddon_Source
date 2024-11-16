@@ -27,7 +27,7 @@ labyMod {
         displayName = "FreakyvilleAddon"
         author = "Ultimate15k"
         description = "An improvement the experience at Freakyville with various quality of life features."
-        minecraftVersion = "1.8.9"
+        minecraftVersion = "*"
         version = rootProject.version.toString()
     }
 }
