@@ -1,7 +1,12 @@
 package com.gmail.vacrosdk.config;
 
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Sounds.NotificationSound;
+import net.labymod.api.Laby;
 import net.labymod.api.addon.AddonConfig;
+import net.labymod.api.client.component.Component;
+import net.labymod.api.client.component.event.ClickEvent;
+import net.labymod.api.client.component.format.Style;
+import net.labymod.api.client.gui.screen.widget.widgets.input.ButtonWidget.ButtonSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.annotation.ConfigName;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
@@ -9,6 +14,7 @@ import net.labymod.api.configuration.loader.annotation.SpriteTexture;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.configuration.settings.annotation.SettingSection;
 import net.labymod.api.util.Color;
+import net.labymod.api.util.MethodOrder;
 
 @ConfigName("settings")
 @SpriteTexture("settings/icons.png")
@@ -28,19 +34,21 @@ public class FreakyvilleConfig extends AddonConfig {
 
   @SettingSection("Misc")
   @SwitchSetting
-  @SpriteSlot(x = 3)
-  private final ConfigProperty<Boolean> discordDisabled = new ConfigProperty<>(true);
-
-  @SwitchSetting
   @SpriteSlot(x = 4)
   private final ConfigProperty<Boolean> fileAccess = new ConfigProperty<>(false);
+
+
+  @MethodOrder(after = "fileAccess")
+  @SpriteSlot(x = 3)
+  @ButtonSetting
+  public void print() {
+    Component text = Component.text("§9Discord: §fhttps://discord.gg/Eg4ARCsQbD", Style.builder().clickEvent(ClickEvent.openUrl("https://discord.gg/Eg4ARCsQbD")).build());
+    Laby.labyAPI().minecraft().chatExecutor().displayClientMessage(text);
+  }
 
   @Override
   public ConfigProperty<Boolean> enabled() {
     return this.enabled;
-  }
-  public ConfigProperty<Boolean> discordDisabled() {
-    return discordDisabled;
   }
   public ConfigProperty<Boolean> getHasfileAccess() {
     return fileAccess;

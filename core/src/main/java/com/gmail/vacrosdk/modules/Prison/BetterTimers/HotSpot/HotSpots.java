@@ -47,7 +47,7 @@ public enum HotSpots {
       MessageCatchLanguage.BPLUS_VV_UPDATE,
       70,
       10,
-      13,
+      15,
       720)),
   B_VAULT(new HotSpot(
       "B Vagtvault",
@@ -100,7 +100,7 @@ public enum HotSpots {
       MessageCatchLanguage.ROCKER_TORBEN_CONFIRMATION,
       MessageCatchLanguage.ROCKER_TORBEN_UPDATE,
       120,
-      10,
+      1,
       180,
       720)),
   A_DISABLE_VAULTS(new HotSpot(

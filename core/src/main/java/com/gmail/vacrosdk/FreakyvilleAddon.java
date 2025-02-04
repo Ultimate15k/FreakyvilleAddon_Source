@@ -25,10 +25,7 @@ import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.BoLootEve
 import com.gmail.vacrosdk.modules.Prison.vagt.VagtJoinListener;
 import com.gmail.vacrosdk.plugin.DeleteFolderC;
 import com.gmail.vacrosdk.plugin.DeleteFolderCC;
-import com.gmail.vacrosdk.plugin.KitsTimers.Commands.KitCommand;
-import com.gmail.vacrosdk.plugin.KitsTimers.KitServerJoin;
-import com.gmail.vacrosdk.plugin.KitsTimers.Listener.KitStatsListener;
-import com.gmail.vacrosdk.plugin.KitsTimers.Listener.KitUpdaterListener;
+import com.gmail.vacrosdk.plugin.Stats.StatsListener;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Listeners.CatchListener;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Listeners.ConfirmListener;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Listeners.UpdateListener;
@@ -75,7 +72,6 @@ import com.gmail.vacrosdk.modules.Prison.PlayerNotifier.PlayerNotifierManager;
 import com.gmail.vacrosdk.modules.Prison.Quest.Commands.QuestCommand;
 import com.gmail.vacrosdk.modules.Prison.vagt.VagtLeaveListener;
 import com.gmail.vacrosdk.plugin.CampCommand;
-import com.gmail.vacrosdk.plugin.DiscordCommand;
 import com.gmail.vacrosdk.plugin.FvCommand;
 import com.gmail.vacrosdk.plugin.Stats.StatsCommand;
 import com.gmail.vacrosdk.plugin.VersionCommand;
@@ -118,7 +114,6 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
 
     isOnlineOnFreakyville = true;
   }
-
 
   private void handleModules() {
     handleVagt();
@@ -163,7 +158,6 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
     this.registerCommand(new VersionCommand("version", this));
     this.registerCommand(new FvCommand("fv", this));
     this.registerCommand(new QuestCommand("quests", this));
-    this.registerCommand(new DiscordCommand("discord", this));
     this.registerCommand(new DebugCommand("addonhid", this));
     this.registerCommand(new StatsCommand("stats", this));
 
@@ -190,16 +184,13 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
     this.registerListener(new CatchListener(this, catchManager));
     this.registerListener(new ConfirmListener(this, catchManager));
     this.registerListener(new UpdateListener(this, catchManager));
-    this.registerListener(new KitStatsListener(this));
-    this.registerListener(new KitUpdaterListener(this));
-    this.registerListener(new KitServerJoin(this));
+    this.registerListener(new StatsListener(this));
     this.registerListener(new ChestListener(this));
     this.registerListener(new ChestUpdateListener(this));
 
     this.registerCommand(new ChestCommand(this));
     this.registerCommand(new GlobalTimersCommand("timers", this));
     this.registerCommand(new PersonalTimersCommand("pTimers", this));
-    this.registerCommand(new KitCommand(this));
 
     registerTimerWidgets();
 

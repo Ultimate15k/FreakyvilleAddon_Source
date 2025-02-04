@@ -1,4 +1,4 @@
-package com.gmail.vacrosdk.plugin.KitsTimers.Listener;
+package com.gmail.vacrosdk.plugin.Stats;
 
 import com.gmail.vacrosdk.FreakyvilleAddon;
 import net.labymod.api.event.Subscribe;
@@ -7,11 +7,11 @@ import net.labymod.api.util.logging.Logging;
 
 import static com.gmail.vacrosdk.utils.TimerFunctions.*;
 
-public class KitStatsListener {
+public class StatsListener {
 
   private final FreakyvilleAddon addon;
 
-  public KitStatsListener(FreakyvilleAddon addon) {
+  public StatsListener(FreakyvilleAddon addon) {
     this.addon = addon;
   }
 

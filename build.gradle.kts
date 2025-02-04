@@ -6,7 +6,7 @@ plugins {
 val versions = providers.gradleProperty("net.labymod.minecraft-versions").get().split(";")
 
 group = "com.gmail.vacrosdk"
-version = providers.environmentVariable("VERSION").getOrElse("2.1.0")
+version = providers.environmentVariable("VERSION").getOrElse("2.2.0")
 
 labyMod {
     defaultPackageName = "com.gmail.vacrosdk" //change this to your main package name (used by all modules)

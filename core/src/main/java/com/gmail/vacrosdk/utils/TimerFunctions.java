@@ -63,13 +63,6 @@ public class TimerFunctions {
             playerFound = true;
             writeDefaultDataV2(xmlFile,playerName);
             switch (fieldType) {
-              case "kithead_reset" -> {
-                Element fieldElement = (Element) playerElement.getElementsByTagName("kithead_date_time").item(0);
-                fieldElement.setTextContent("Ingen data");
-
-                Element fieldElement2 = (Element) playerElement.getElementsByTagName("kithead_start_date_time").item(0);
-                fieldElement2.setTextContent("Ingen data");
-              }
               case "investments" -> {
                 // Update investments_date and investments_time
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy");
@@ -82,23 +75,7 @@ public class TimerFunctions {
                 investmentsDateElement.setTextContent(currentDateAndTime.substring(6, 16));
                 investmentsTimeElement.setTextContent(currentDateAndTime.substring(0, 5));
               }
-              case "kithead_date_time" -> {
-                isDateAWeekAgo(playerName);
-                // Update kithead_date_time
-                String playerData = getPlayerData(playerName,"kithead_date_time");
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy");
-                LocalDateTime now = LocalDateTime.now();
-                String currentDateAndTime = dtf.format(now);
-                if(playerData.equals("Ingen data")) {
-                  Element fieldElement2 = (Element) playerElement.getElementsByTagName("kithead_start_date_time").item(0);
-                  fieldElement2.setTextContent(currentDateAndTime);
-                }
-
-                Element fieldElement = (Element) playerElement.getElementsByTagName("kithead_date_time").item(0);
-                fieldElement.setTextContent(currentDateAndTime);
-              }
               case "stats_heads_kit", "stats_heads_vv" -> {
-                isDateAWeekAgo(playerName);
                 Element fieldElement = (Element) playerElement.getElementsByTagName(fieldType).item(0);
                 int currentValue = Integer.parseInt(fieldElement.getTextContent());
                 fieldElement.setTextContent(String.valueOf(currentValue + 1));
@@ -142,14 +119,6 @@ public class TimerFunctions {
         Element investmentsTimeElement = doc.createElement("investments_time");
         investmentsTimeElement.appendChild(doc.createTextNode("Ingen data"));
         newPlayer.appendChild(investmentsTimeElement);
-
-        Element kitheadStartDateTimeElement = doc.createElement("kithead_start_date_time");
-        kitheadStartDateTimeElement.appendChild(doc.createTextNode("Ingen data"));
-        newPlayer.appendChild(kitheadStartDateTimeElement);
-
-        Element kitheadDateTimeElement = doc.createElement("kithead_date_time");
-        kitheadDateTimeElement.appendChild(doc.createTextNode("Ingen data"));
-        newPlayer.appendChild(kitheadDateTimeElement);
 
         Element stats_kitHeadsElement = doc.createElement("stats_heads_kit");
         stats_kitHeadsElement.appendChild(doc.createTextNode("0"));
@@ -253,14 +222,6 @@ public class TimerFunctions {
         investmentsTimeElement.appendChild(doc.createTextNode("Ingen data"));
         playerElement.appendChild(investmentsTimeElement);
 
-        Element kitheadStartDateTimeElement = doc.createElement("kithead_start_date_time");
-        kitheadStartDateTimeElement.appendChild(doc.createTextNode("Ingen data"));
-        playerElement.appendChild(kitheadStartDateTimeElement);
-
-        Element kitheadDateTimeElement = doc.createElement("kithead_date_time");
-        kitheadDateTimeElement.appendChild(doc.createTextNode("Ingen data"));
-        playerElement.appendChild(kitheadDateTimeElement);
-
         Element statsKitHeadsElement = doc.createElement("stats_heads_kit");
         statsKitHeadsElement.appendChild(doc.createTextNode("0"));
         playerElement.appendChild(statsKitHeadsElement);
@@ -292,6 +253,7 @@ public class TimerFunctions {
         Element chestFitnessDateTimeElement = doc.createElement("chest_Fitness");
         chestFitnessDateTimeElement.appendChild(doc.createTextNode("Ingen data"));
         playerElement.appendChild(chestFitnessDateTimeElement);
+
       }
 
       // Write the content into the XML file
@@ -331,14 +293,6 @@ public class TimerFunctions {
       Element investmentsTimeElement = doc.createElement("investments_time");
       investmentsTimeElement.appendChild(doc.createTextNode("Ingen data"));
       playerElement.appendChild(investmentsTimeElement);
-
-      Element kitheadStartDateTimeElement = doc.createElement("kithead_start_date_time");
-      kitheadStartDateTimeElement.appendChild(doc.createTextNode("Ingen data"));
-      playerElement.appendChild(kitheadStartDateTimeElement);
-
-      Element kitheadDateTimeElement = doc.createElement("kithead_date_time");
-      kitheadDateTimeElement.appendChild(doc.createTextNode("Ingen data"));
-      playerElement.appendChild(kitheadDateTimeElement);
 
       Element stats_kitHeadsElement = doc.createElement("stats_heads_kit");
       stats_kitHeadsElement.appendChild(doc.createTextNode("0"));
@@ -630,8 +584,6 @@ public class TimerFunctions {
     return hoursDifference >= 24;
   }
 
-
-
   public static String[] calculateAdjustedTime(int hours, int minutes, int seconds) {
     // Get the current local time
     LocalDateTime currentTime = LocalDateTime.now();
@@ -653,16 +605,6 @@ public class TimerFunctions {
     String dateAndClock = adjustedTime.format(clockFormatter) + " " + adjustedTime.format(dateFormatter);
 
     return new String[]{date, clock, dateAndClock};
-  }
-
-  public static String formatPlayerTime(String playerData) {
-    if(playerData.contains("Ingen data")) {
-      return "Ingen data";
-    }
-    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy");
-    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("HH:mm");
-    LocalDateTime dateTime = LocalDateTime.parse(playerData, inputFormatter);
-    return dateTime.format(outputFormatter);
   }
 
   // Remove whitespace nodes
@@ -695,21 +637,6 @@ public class TimerFunctions {
     return now.minusHours(hours).minusMinutes(minutes);
   }
 
-  public static boolean isDateAWeekAgo(String playerName) {
-    String playerData = getPlayerData(playerName, "kithead_start_date_time");
-    if (playerData.equalsIgnoreCase("Ingen data")) {
-      return false;
-    }
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy");
-    LocalDateTime dateTime = LocalDateTime.parse(playerData, formatter);
-    LocalDateTime oneWeekAgo = LocalDateTime.now().minusWeeks(1);
-    boolean isOneWeekAgoOrMore = dateTime.isBefore(oneWeekAgo) || dateTime.isEqual(oneWeekAgo);
-    if (isOneWeekAgoOrMore) {
-      updatePlayerData(playerName, "kithead_reset", 0);
-    }
-    return isOneWeekAgoOrMore;
-  }
-
   public static void CheckPlayerFile(String playerName) {
     try {
       // Load or create XML file
@@ -734,8 +661,6 @@ public class TimerFunctions {
       checkAndAddElement(doc, rootElement, "playerName", playerName);
       checkAndAddElement(doc, rootElement, "investments_date", "Ingen data");
       checkAndAddElement(doc, rootElement, "investments_time", "Ingen data");
-      checkAndAddElement(doc, rootElement, "kithead_start_date_time", "Ingen data");
-      checkAndAddElement(doc, rootElement, "kithead_date_time", "Ingen data");
       checkAndAddElement(doc, rootElement, "stats_heads_kit", "0");
       checkAndAddElement(doc, rootElement, "stats_heads_vv", "0");
       checkAndAddElement(doc, rootElement, "chest_TankStation", "Ingen data");

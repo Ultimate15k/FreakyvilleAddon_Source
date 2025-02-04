@@ -74,9 +74,6 @@
       "enabled": {
         "name": "Enabled"
       },
-      "discordDisabled": {
-        "name": "Discord Command"
-      },
       "fileAccess": {
         "name": "Fil adgang (Hold musen over for mere information)",
         "description": "For at \"Kit Head Timers\", \"Chest Timers\", \"Investments\" og \"Stats\" skal fungere, skal denne være slået til. Læs mere på vores Discord under \"FAQ\"."
@@ -91,6 +88,10 @@
         "Misc": {
           "name": "Misc indstillinger"
         }
+      },
+      "print": {
+        "name": "Discord Link",
+        "text": "Tryk her for link"
       },
       "frihedenConfig": {
         "name": "Friheden",
