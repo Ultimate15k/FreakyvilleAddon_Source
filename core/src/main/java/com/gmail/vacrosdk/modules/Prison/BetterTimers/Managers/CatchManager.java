@@ -27,6 +27,7 @@ public class CatchManager {
     map.put(HotSpots.A_DISABLE_VAULTS.getHotSpot(), HotSpots.A_DISABLE_VAULTS.getHotSpot());
     map.put(HotSpots.BPLUS_GANGAREA.getHotSpot(), HotSpots.BPLUS_GANGAREA.getHotSpot());
     map.put(HotSpots.B_GANG_AREA.getHotSpot(), HotSpots.B_GANG_AREA.getHotSpot());
+    map.put(HotSpots.C_GANG_AREA.getHotSpot(), HotSpots.C_GANG_AREA.getHotSpot());
     map.put(HotSpots.B_PVP_CHEST.getHotSpot(), HotSpots.B_PVP_CHEST.getHotSpot());
     map.put(HotSpots.BPLUS_VAULT.getHotSpot(), HotSpots.BPLUS_VAULT.getHotSpot());
     map.put(HotSpots.NEW_GANG.getHotSpot(), HotSpots.NEW_GANG.getHotSpot());

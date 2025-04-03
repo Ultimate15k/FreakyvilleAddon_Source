@@ -15,6 +15,7 @@ import com.gmail.vacrosdk.modules.Prison.BetterTimers.Chests.Listener.ChestListe
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Chests.Listener.ChestUpdateListener;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Commands.GlobalTimersCommand;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Commands.PersonalTimersCommand;
+import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.CGangAreaTimerWidget;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_FitnessTimerTextHudWidget;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_MinenTimerTextHudWidget;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_MrXTimerTextHudWidget;
@@ -22,6 +23,7 @@ import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_So
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_TankStationTimerTextHudWidget;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_TreeTimerTextHudWidget;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.BoLootEvent;
+import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.CGangAreaEvent;
 import com.gmail.vacrosdk.modules.Prison.vagt.VagtJoinListener;
 import com.gmail.vacrosdk.plugin.DeleteFolderC;
 import com.gmail.vacrosdk.plugin.DeleteFolderCC;
@@ -135,6 +137,7 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
     this.registerListener(new AGangAreaEvent(MessageCatchLanguage.A_GANGAREA_CATCH, this));
     this.registerListener(new BPlusGangAreaEvent(MessageCatchLanguage.BPLUS_GANGAREA_CATCH, this));
     this.registerListener(new BGangAreaEvent(MessageCatchLanguage.B_GANGAREA_CATCH, this));
+    this.registerListener(new CGangAreaEvent(MessageCatchLanguage.C_GANGAREA_CATCH, this));
     this.registerListener(new RockerTorbenEvent(MessageCatchLanguage.ROCKER_TORBEN_CATCH, this));
     this.registerListener(new GuardsDisableVaultsEvent(MessageCatchLanguage.A_DISABLE_VAULTS_CATCH, this));
     this.registerListener(new StringCaughtEvent(MessageCatchLanguage.STRING_CAUGHT_CATCH, this));
@@ -282,6 +285,14 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
                 "themes/fancy/textures/settings/icons2.png"),
             3,
             1)));
+    labyAPI().hudWidgetRegistry().register(new CGangAreaTimerWidget(
+        "C_GangArea_Timer",
+        this,
+        Icon.sprite16(ResourceLocation.create(
+                "freakyvilleaddon",
+                "themes/fancy/textures/settings/icons2.png"),
+            3,
+            3)));
     labyAPI().hudWidgetRegistry().register(new BPvPChestTimerTextHudWidget(
         "B_PvPChest_Timer",
         this,

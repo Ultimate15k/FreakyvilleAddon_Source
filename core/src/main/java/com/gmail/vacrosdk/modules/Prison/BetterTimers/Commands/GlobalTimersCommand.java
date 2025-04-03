@@ -21,17 +21,20 @@ public class GlobalTimersCommand extends Command {
 
     TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
     addon.displayMessage(Component.text("Liste over globale timers:").color(textColor));
-    HotSpots.APLUS_BANK.getHotSpot().printGlobal(addon);
     HotSpots.A_VAULT.getHotSpot().printGlobal(addon);
-    HotSpots.B_VAULT.getHotSpot().printGlobal(addon);
-    HotSpots.C_VAULT.getHotSpot().printGlobal(addon);
-
-    HotSpots.APLUS_GANGAREA.getHotSpot().printGlobal(addon);
+    HotSpots.APLUS_BANK.getHotSpot().printGlobal(addon);
     HotSpots.A_GANGAREA.getHotSpot().printGlobal(addon);
-    HotSpots.BPLUS_GANGAREA.getHotSpot().printGlobal(addon);
-    HotSpots.B_GANG_AREA.getHotSpot().printGlobal(addon);
-    HotSpots.B_PVP_CHEST.getHotSpot().printGlobal(addon);
+    HotSpots.APLUS_GANGAREA.getHotSpot().printGlobal(addon);
+
+    HotSpots.B_VAULT.getHotSpot().printGlobal(addon);
     HotSpots.BPLUS_VAULT.getHotSpot().printGlobal(addon);
+    HotSpots.B_GANG_AREA.getHotSpot().printGlobal(addon);
+    HotSpots.BPLUS_GANGAREA.getHotSpot().printGlobal(addon);
+    HotSpots.B_PVP_CHEST.getHotSpot().printGlobal(addon);
+
+    HotSpots.C_VAULT.getHotSpot().printGlobal(addon);
+    HotSpots.C_GANG_AREA.getHotSpot().printGlobal(addon);
+
     HotSpots.NEW_GANG.getHotSpot().printGlobal(addon);
 
     printOthers();

@@ -47,6 +47,9 @@
       "B_GangArea_Timer": {
         "name": "B Bandeområde timer"
       },
+      "C_GangArea_Timer": {
+        "name": "C Bandeområde timer"
+      },
       "Gang_Cooldown_GangArea_Timer": {
         "name":"Join BO Cooldown"
       },
@@ -76,7 +79,7 @@
       },
       "fileAccess": {
         "name": "Fil adgang (Hold musen over for mere information)",
-        "description": "For at \"Kit Head Timers\", \"Chest Timers\", \"Investments\" og \"Stats\" skal fungere, skal denne være slået til. Læs mere på vores Discord under \"FAQ\"."
+        "description": "For at \"Chest Timers\", \"Investments\" og \"Stats\" skal fungere, skal denne være slået til. Læs mere på vores Discord under \"FAQ\"."
       },
       "header": {
         "Prison": {
@@ -90,7 +93,7 @@
         }
       },
       "print": {
-        "name": "Discord Link",
+        "name": "Discord Link (Kræver at du er inde på en server)",
         "text": "Tryk her for link"
       },
       "frihedenConfig": {
@@ -372,6 +375,12 @@
             },
             "pallevagtEnabled": {
               "name": "Palle Vagt"
+            }
+          },
+          "questcsubSettings": {
+            "name": "C Quest",
+            "CfinnfiskerEnabled": {
+              "name": "Finn Fisker"
             }
           }
         }

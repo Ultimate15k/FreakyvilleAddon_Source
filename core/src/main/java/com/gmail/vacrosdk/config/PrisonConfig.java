@@ -255,4 +255,11 @@ public class PrisonConfig extends Config {
     return questSubSettings.getBQuestEnabled();
   }
 
+  public ConfigProperty<Boolean> getCQuestEnabled() {
+    return questSubSettings.getCQuestEnabled();
+  }
+  public ConfigProperty<Boolean> getCFinnfiskerEnabled() {
+    return questSubSettings.getCFinnfiskerEnabled();
+  }
+
 }

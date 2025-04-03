@@ -262,4 +262,11 @@ public class FreakyvilleConfig extends AddonConfig {
   public ConfigProperty<Boolean> getBQuestEnabled() {
     return prisonConfig.getBQuestEnabled();
   }
+
+  public ConfigProperty<Boolean> getCQuestEnabled() {
+    return prisonConfig.getCQuestEnabled();
+  }
+  public ConfigProperty<Boolean> getCFinnfiskerEnabled() {
+    return prisonConfig.getCFinnfiskerEnabled();
+  }
 }

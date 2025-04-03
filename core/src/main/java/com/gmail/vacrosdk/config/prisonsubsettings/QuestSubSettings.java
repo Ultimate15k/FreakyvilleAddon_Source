@@ -16,6 +16,8 @@ public class QuestSubSettings extends Config {
   private final QuestASubSettings questasubSettings = new QuestASubSettings();
   @SpriteSlot(y = 2, x = 2)
   private final QuestBSubSettings questbsubSettings = new QuestBSubSettings();
+  @SpriteSlot(y = 4)
+  private final QuestCSubSettings questcsubSettings = new QuestCSubSettings();
 
 
 
@@ -41,6 +43,13 @@ public class QuestSubSettings extends Config {
   public ConfigProperty<Boolean> getBQuestEnabled() {
     return questbsubSettings.getBQuestEnabled();
   }
+  public ConfigProperty<Boolean> getCQuestEnabled() {
+    return questcsubSettings.getCQuestEnabled();
+  }
+  public ConfigProperty<Boolean> getCFinnfiskerEnabled() {
+    return questcsubSettings.getCFinnfiskerEnabled();
+  }
+
 
   public ConfigProperty<Boolean> getAQuestEnabled() {
     return questasubSettings.getAQuestEnabled();

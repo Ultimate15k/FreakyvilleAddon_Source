@@ -34,6 +34,7 @@ public class PersonalTimersCommand extends Command {
     HotSpots.B_GANG_AREA.getHotSpot().printPersonal(addon);
     HotSpots.B_PVP_CHEST.getHotSpot().printPersonal(addon);
     HotSpots.BPLUS_VAULT.getHotSpot().printPersonal(addon);
+    HotSpots.C_GANG_AREA.getHotSpot().printPersonal(addon);
     HotSpots.NEW_GANG.getHotSpot().printGlobal(addon);
     HotSpots.NEW_FISHING_ROD.getHotSpot().printPersonal(addon);
     HotSpots.B_KOBEN.getHotSpot().printPersonal(addon);

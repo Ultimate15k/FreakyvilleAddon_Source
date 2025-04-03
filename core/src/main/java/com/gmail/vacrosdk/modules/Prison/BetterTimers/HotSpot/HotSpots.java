@@ -47,7 +47,7 @@ public enum HotSpots {
       MessageCatchLanguage.BPLUS_VV_UPDATE,
       70,
       10,
-      15,
+      13,
       720)),
   B_VAULT(new HotSpot(
       "B Vagtvault",
@@ -84,6 +84,15 @@ public enum HotSpots {
       20,
       3,
       45,
+      180)),
+  C_GANG_AREA(new HotSpot(
+      "C Bandeområde",
+      MessageCatchLanguage.C_GANGAREA_CATCH,
+      MessageCatchLanguage.C_GANGAREA_CONFIRMATION,
+      MessageCatchLanguage.C_GANGAREA_UPDATE,
+      15,
+      5,
+      60,
       180)),
   C_VAULT(new HotSpot(
       "C Vagtvault",

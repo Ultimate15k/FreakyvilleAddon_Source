@@ -5,6 +5,7 @@ import com.gmail.vacrosdk.modules.Prison.Quest.SubCommands.QuestA;
 import com.gmail.vacrosdk.modules.Prison.Quest.SubCommands.QuestB;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import com.gmail.vacrosdk.modules.Prison.Quest.SubCommands.QuestC;
 import net.labymod.api.client.chat.command.Command;
 
 public class QuestCommand extends Command {
@@ -16,6 +17,7 @@ public class QuestCommand extends Command {
 
     this.withSubCommand(new QuestA(addon));
     this.withSubCommand(new QuestB(addon));
+    this.withSubCommand(new QuestC(addon));
     this.addon = addon;
   }
 
@@ -51,6 +53,13 @@ public class QuestCommand extends Command {
               addon.displayMessage("§9Du får: §f1 Diamond Polet");
             }
           }
+          if(CQuestIsDisabled()) {
+            addon.displayMessage("§9★§f✩§9★ §9§l[MANDAG - C] ★§f✩§9★");
+            if (CFinnFiskerIsDisabled()) {
+              addon.displayMessage("§9§l[Finn Fisker] - §fRøv Vagt-Vaulten (C):");
+              addon.displayMessage("§9Du får: §f$2500 & Ok chance for 1 rare head");
+            }
+          }
         } else if (dayOfWeek == DayOfWeek.TUESDAY) {
           if(AQuestIsDisabled()) {
             addon.displayMessage("§a★§f✩§a★ §a§l[TIRSDAG - A] ★§f✩§a★");
@@ -80,6 +89,13 @@ public class QuestCommand extends Command {
                   "§aDu får: §f3 Diamond Polet + 10 Brød + 25% Chance for Computer");
             }
           }
+          if(CQuestIsDisabled()) {
+            addon.displayMessage("§a★§f✩§a★ §a§l[TIRSDAG - C] ★§f✩§a★");
+            if (CFinnFiskerIsDisabled()) {
+              addon.displayMessage("§a§l[Finn Fisker] - §fAflever 32 Iron Ingots + 32 Coal + 1 blazerods:");
+              addon.displayMessage("§aDu får: §f1 Fishing rod med 10% chance for unbreaking");
+            }
+          }
         } else if (dayOfWeek == DayOfWeek.WEDNESDAY) {
           if(AQuestIsDisabled()) {
             addon.displayMessage("§b★§f✩§b★ §b§l[ONSDAG - A] ★§f✩§b★");
@@ -107,6 +123,13 @@ public class QuestCommand extends Command {
               addon.displayMessage("§bDu får: §f10 Blazerods + 1 Legend Key + 2 Diamond Poletter");
             }
           }
+          if(CQuestIsDisabled()) {
+            addon.displayMessage("§b★§f✩§b★ §b§l[ONSDAG - C] ★§f✩§b★");
+            if (CFinnFiskerIsDisabled()) {
+              addon.displayMessage("§b§l[Finn Fisker] - §f15 Raw fish + 15 clown fish:");
+              addon.displayMessage("§bDu får: §f2 Blaze Rod + Lille chance for String");
+            }
+          }
         } else if (dayOfWeek == DayOfWeek.THURSDAY) {
           if(AQuestIsDisabled()) {
             addon.displayMessage("§e★§f✩§e★ §e§l[TORSDAG - A] ★§f✩§e★");
@@ -126,14 +149,19 @@ public class QuestCommand extends Command {
               addon.displayMessage("§eDu får: §f25k & Lille chance for head");
             }
             if (FinnFiskerIsDisabled()) {
-              addon.displayMessage(
-                  "§e§l[Finn Fisker] - §fAflever 4 stacks Iron Ingots + 64 logs + 7 blazerods:");
+              addon.displayMessage("§e§l[Finn Fisker] - §fAflever 4 stacks Iron Ingots + 64 logs + 7 blazerods:");
               addon.displayMessage("§eDu får: §f1 Fishing rod med 10% chance for unbreaking");
             }
             if (PalleVagtIsDisabled()) {
-              addon.displayMessage(
-                  "§e§l[PalleVagt] - §fAflever 4 stacks Oak log + 4 stacks Leaves:");
+              addon.displayMessage("§e§l[PalleVagt] - §fAflever 4 stacks Oak log + 4 stacks Leaves:");
               addon.displayMessage("§eDu får: §f2 Legend Keys + 5 Blazerods");
+            }
+          }
+          if(CQuestIsDisabled()) {
+            addon.displayMessage("§e★§f✩§e★ §e§l[TORSDAG - C] ★§f✩§e★");
+            if (CFinnFiskerIsDisabled()) {
+              addon.displayMessage("§e§l[Finn Fisker] - §fAflever 4 stacks Iron Ingots + 64 logs + 7 blazerods:");
+              addon.displayMessage("§eDu får: §f1 Fishing rod med 10% chance for unbreaking");
             }
           }
         } else if (dayOfWeek == DayOfWeek.FRIDAY) {
@@ -152,8 +180,7 @@ public class QuestCommand extends Command {
             addon.displayMessage("§c★§f✩§c★ §c§l[FREDAG - B] ★§f✩§c★");
             if (MrXIsDisabled()) {
               addon.displayMessage("§c§l[Mr. X] - §fAflever 32 kaktus & 4 stacks jern:");
-              addon.displayMessage(
-                  "§cDu får: §f2 Guld Polet, 25% chance for PC & chance for 1-3 dbs");
+              addon.displayMessage("§cDu får: §f2 Guld Polet, 25% chance for PC & chance for 1-3 dbs");
             }
             if (FinnFiskerIsDisabled()) {
               addon.displayMessage("§c§l[Finn Fisker] - §fBræk 3 kister op i B:");
@@ -162,6 +189,13 @@ public class QuestCommand extends Command {
             if (PalleVagtIsDisabled()) {
               addon.displayMessage("§c§l[PalleVagt] - §fAflever 16 Kaktus + 2 stacks sugar:");
               addon.displayMessage("§cDu får: §f5k + 2 Guld Poletter + 25% Chance for Computer");
+            }
+          }
+          if(CQuestIsDisabled()) {
+            addon.displayMessage("§c★§f✩§c★ §c§l[FREDAG - C] ★§f✩§c★");
+            if (CFinnFiskerIsDisabled()) {
+              addon.displayMessage("§c§l[Finn Fisker] - §fBræk 3 kister op i C:");
+              addon.displayMessage("§cDu får: §f2500 + Lille chance for head");
             }
           }
         } else if (dayOfWeek == DayOfWeek.SATURDAY) {
@@ -193,6 +227,13 @@ public class QuestCommand extends Command {
               addon.displayMessage("§6Du får: §f1 Sæt Titan Tools + 1 Diamond");
             }
           }
+          if(CQuestIsDisabled()) {
+            addon.displayMessage("§6★§f✩§6★ §6§l[LØRDAG - C] ★§f✩§6★");
+            if (CFinnFiskerIsDisabled()) {
+              addon.displayMessage("§6§l[Finn Fisker] - §fAflever 256 Iron Ingots + 48 logs + 6 blazerods:");
+              addon.displayMessage("§6Du får: §f1 Fishing rod med 10% chance for unbreaking");
+            }
+          }
         } else if (dayOfWeek == DayOfWeek.SUNDAY) {
           if(AQuestIsDisabled()) {
             addon.displayMessage("§d★§f✩§d★ §d§l[SØNDAG - A] ★§f✩§d★");
@@ -219,6 +260,13 @@ public class QuestCommand extends Command {
             if (PalleVagtIsDisabled()) {
               addon.displayMessage("§d§l[PalleVagt] - §fAflever 1 Sæt Diamond Gear:");
               addon.displayMessage("§dDu får: §f50k");
+            }
+          }
+          if(CQuestIsDisabled()) {
+            addon.displayMessage("§d★§f✩§d★ §d§l[SØNDAG - C] ★§f✩§d★");
+            if (CFinnFiskerIsDisabled()) {
+              addon.displayMessage("§e§l[Finn Fisker] - §fAflever 64 coal + 64 iron ingots og 2 blaze rods:");
+              addon.displayMessage("§eDu får: §f1 Fishing rod med 10% chance for unbreaking");
             }
           }
         } else {
@@ -256,6 +304,13 @@ public class QuestCommand extends Command {
 
   private boolean BQuestIsDisabled() {
     return addon.configuration().getBQuestEnabled().get().equals(true);
+  }
+
+  private boolean CQuestIsDisabled() {
+    return addon.configuration().getCQuestEnabled().get().equals(true);
+  }
+  private boolean CFinnFiskerIsDisabled() {
+    return addon.configuration().getCFinnfiskerEnabled().get().equals(true) || addon.configuration().getQuestsEnabled().get().equals(false)|| addon.configuration().getPrisonEnabled().get().equals(false);
   }
 
   private boolean AQuestIsDisabled() {

@@ -36,6 +36,10 @@ public class MessageCatchLanguage {
   public static String B_PVP_CHEST_CONFIRMATION = "låste den hemmelige chest op i PvP Minen!";
   public static String PVP_CHEST_UPDATE = null;
 
+  public static String C_GANGAREA_CATCH = "prøver at overtage Bande Området for hans bande!";
+  public static String C_GANGAREA_CONFIRMATION = "[Bande-Område] Det lykkedes";
+  public static String C_GANGAREA_UPDATE = null;
+
   public static String C_VV_CATCH = "har haft fingrene i Vagt-Vaulten i C!";
   public static String C_VV_CONFIRMATION = null;
   public static String C_VV_UPDATE = "Røveri: Du kan først røve her igen om";
