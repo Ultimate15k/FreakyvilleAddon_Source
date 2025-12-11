@@ -25,6 +25,7 @@ public class PersonalTimersCommand extends Command {
     HotSpots.APLUS_BANK.getHotSpot().printPersonal(addon);
     HotSpots.A_VAULT.getHotSpot().printPersonal(addon);
     HotSpots.B_VAULT.getHotSpot().printPersonal(addon);
+    HotSpots.CM_VAULT.getHotSpot().printPersonal(addon);
     HotSpots.C_VAULT.getHotSpot().printPersonal(addon);
 
     HotSpots.APLUS_GANGAREA.getHotSpot().printPersonal(addon);

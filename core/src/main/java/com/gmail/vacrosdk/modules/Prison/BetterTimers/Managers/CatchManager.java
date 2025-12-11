@@ -19,6 +19,7 @@ public class CatchManager {
   public void load() {
     map.put(HotSpots.A_VAULT.getHotSpot(), HotSpots.A_VAULT.getHotSpot());
     map.put(HotSpots.APLUS_BANK.getHotSpot(), HotSpots.APLUS_BANK.getHotSpot());
+    map.put(HotSpots.CM_VAULT.getHotSpot(), HotSpots.CM_VAULT.getHotSpot());
     map.put(HotSpots.C_VAULT.getHotSpot(), HotSpots.C_VAULT.getHotSpot());
     map.put(HotSpots.APLUS_GANGAREA.getHotSpot(), HotSpots.APLUS_GANGAREA.getHotSpot());
     map.put(HotSpots.A_GANGAREA.getHotSpot(), HotSpots.A_GANGAREA.getHotSpot());

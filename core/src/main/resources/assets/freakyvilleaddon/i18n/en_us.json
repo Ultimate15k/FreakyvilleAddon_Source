@@ -7,6 +7,11 @@
       }
     }
   },
+  "Friheden": {
+    "BetterApartments": {
+      "requirments": "§bKrav: §7"
+    }
+  },
   "freakyvilleaddon": {
     "hudWidget": {
       "A+_Vault_widget": {

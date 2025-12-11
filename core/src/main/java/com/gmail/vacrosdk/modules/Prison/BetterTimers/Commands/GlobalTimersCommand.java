@@ -32,6 +32,7 @@ public class GlobalTimersCommand extends Command {
     HotSpots.BPLUS_GANGAREA.getHotSpot().printGlobal(addon);
     HotSpots.B_PVP_CHEST.getHotSpot().printGlobal(addon);
 
+    HotSpots.CM_VAULT.getHotSpot().printGlobal(addon);
     HotSpots.C_VAULT.getHotSpot().printGlobal(addon);
     HotSpots.C_GANG_AREA.getHotSpot().printGlobal(addon);
 

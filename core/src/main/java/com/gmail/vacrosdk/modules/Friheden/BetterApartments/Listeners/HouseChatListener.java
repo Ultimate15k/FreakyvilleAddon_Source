@@ -11,12 +11,14 @@ import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.chat.ChatReceiveEvent;
+import net.labymod.api.util.I18n;
 import net.labymod.api.util.logging.Logging;
 
 public class HouseChatListener {
@@ -79,7 +81,7 @@ public class HouseChatListener {
         event.setCancelled(true);
       }
       if(!betterApartmentsReqIsDisabled()) {
-        addon.displayMessage("§bKrav: §7" + houseAreaManager.getHouseArea(house2).getHouseRequirements());
+        addon.displayMessage(I18n.translate("Friheden.BetterApartments.requirments" + houseAreaManager.getHouseArea(house2).getHouseRequirements()));
       }
     }
   }
@@ -87,7 +89,7 @@ public class HouseChatListener {
   private void updateMessage(ChatReceiveEvent event, String message, House house) {
     if(houseAreaDoesNotExist(house)) {
       event.setMessage(Component.text("§cDer opstod en fejl, som er blevet reporteret. \n"+ message));
-      SendErrorWebhook(house);
+//      SendErrorWebhook(house);
       return;
     }
     doFinalMessage(event, message, house);
@@ -108,7 +110,7 @@ public class HouseChatListener {
     EmbedObject embed = new EmbedObject();
     embed.setTitle("FrihedenAddon - Celle fejl");
     embed.setColor(Color.RED);
-    embed.addField("Navn:", addon.labyAPI().minecraft().getClientPlayer().getName(), false);
+    embed.addField("Navn:", Objects.requireNonNull(addon.labyAPI().minecraft().getClientPlayer()).getName(), false);
     embed.addField("Version:", String.valueOf(addon.addonInfo().getVersion()), false);
     embed.addField("Identifier:", house.getIdentifier().getStringIdentifier(), false);
     embed.addField("Number:", String.valueOf(house.getHouseNumber()), false);

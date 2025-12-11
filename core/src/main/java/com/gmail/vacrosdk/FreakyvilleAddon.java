@@ -16,6 +16,7 @@ import com.gmail.vacrosdk.modules.Prison.BetterTimers.Chests.Listener.ChestUpdat
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Commands.GlobalTimersCommand;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Commands.PersonalTimersCommand;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.CGangAreaTimerWidget;
+import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.CMVaultTimerTextHudWidget;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_FitnessTimerTextHudWidget;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_MinenTimerTextHudWidget;
 import com.gmail.vacrosdk.modules.Prison.BetterTimers.Widget.SubWidgets.chest_MrXTimerTextHudWidget;
@@ -247,6 +248,14 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
         this));
     labyAPI().hudWidgetRegistry().register(new CVaultTimerTextHudWidget(
         "C_Vault_widget",
+        Icon.sprite16(ResourceLocation.create(
+                "freakyvilleaddon",
+                "themes/fancy/textures/settings/icons2.png"),
+            4,
+            0),
+        this));
+    labyAPI().hudWidgetRegistry().register(new CMVaultTimerTextHudWidget(
+        "CM_Vault_widget",
         Icon.sprite16(ResourceLocation.create(
                 "freakyvilleaddon",
                 "themes/fancy/textures/settings/icons2.png"),

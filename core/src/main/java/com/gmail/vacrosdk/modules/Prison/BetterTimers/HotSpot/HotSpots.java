@@ -103,6 +103,15 @@ public enum HotSpots {
       5,
       5,
       120)),
+  CM_VAULT(new HotSpot(
+      "C Max Vagtvault",
+      MessageCatchLanguage.CM_VV_CATCH,
+      MessageCatchLanguage.CM_VV_CONFIRMATION,
+      MessageCatchLanguage.CM_VV_UPDATE,
+      30,
+      5,
+      15,
+      120)),
   A_ROCKER_TORBEN(new HotSpot(
       "A Rocker Torben",
       MessageCatchLanguage.ROCKER_TORBEN_CATCH,

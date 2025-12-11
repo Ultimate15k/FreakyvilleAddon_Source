@@ -2,6 +2,13 @@ package com.gmail.vacrosdk.modules.Friheden.BetterApartments.House.Area;
 
 import com.gmail.vacrosdk.modules.Friheden.BetterApartments.House.HouseIdentifier;
 
+/**
+ * This is not a language file.
+ * Instead, this represents a chat message pattern or text
+ * that the addon will listen for and then trigger something.
+ */
+
+
 public enum HouseAreas {
   DIA_ETAGE_1(new HouseArea(1, 5, HouseIdentifier.DIAMOND, "Diamond Lejligheder", "Etage 1", "Borger")),
   DIA_ETAGE_2(new HouseArea(6, 11, HouseIdentifier.DIAMOND, "Diamond Lejligheder", "Etage 2", "Borger")),
