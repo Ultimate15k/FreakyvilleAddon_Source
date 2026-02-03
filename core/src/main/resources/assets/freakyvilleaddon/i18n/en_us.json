@@ -1,5 +1,8 @@
 {
   "labymod": {
+    "error": {
+      "message": "§cDer opstod en fejl. \nLav venligst en ticket på vores Discord. \n§7Fejlbesked: §f%s"
+    },
     "hudWidgetCategory": {
       "freakyvilleaddon_category": {
         "name": "FreakyVilleAddon",
@@ -7,9 +10,58 @@
       }
     }
   },
+  "NT": {
+    "add": "/nt add <playerName>",
+    "show": "/nt <playerName>",
+    "no_players": "Der er ikke nogle spillere tilføjet til CustomNameTags",
+    "remove": "/nt remove <playerName>",
+    "usage": "/nt <add/remove/players/clear> <playerName>",
+    "already_added": "This person is already added to CustomNameTags.",
+    "added": "You added %s to CustomNameTags.",
+    "not_added": "This person is not added to CustomNameTags.",
+    "removed": "You removed %s from CustomNameTags.",
+    "list_header": "List of players in CustomNameTags:",
+    "cleared": "You cleared all players from CustomNameTags."
+  },
+  "Prison": {
+    "Chest": {
+      "header": "§3★§f✩§3★ §3§lKister ★§f✩§3★",
+      "no_data": "§6Ingen data",
+      "entry": "§a%s: §6%s",
+      "entry_no_data": "§a%s: §6Ingen data"
+    },
+    "BetterTimers": {
+      "global_header": "Liste over globale timers:",
+      "personal_header": "Liste over personlige timers:",
+      "reminder": "HOV! %s kan tages om %s minutter!",
+      "unknown": "%s timer: Ukendt",
+      "global": "%s timer: %s",
+      "not_taken": "%s timer: Ikke taget",
+      "personal": "%s timer: %s",
+      "confirmed": "BetterTimers detected: %s has confirmed"
+    }
+  },
   "Friheden": {
     "BetterApartments": {
-      "requirments": "§bKrav: §7"
+      "requirments": "§bKrav: §7",
+      "location": "§bLokation: §7",
+      "error": "§cDer opstod en fejl, som er blevet reporteret. \n"
+    },
+    "Investments": {
+      "invest.header": "§6§m----§aInvesterings Timer - [§6%s§a]§6§m----",
+      "invest.collect_time_label": "§aKlokken du kan tage",
+      "invest.time_since_last": "§aTid siden sidste indsamling",
+      "invest.can_collect": "§4Du kan tage dine investeringer",
+      "invest.possible_players_header": "§6§m----§aMulige personer:§6§m----",
+      "invest.player_can_collect": "§6%s - §4Investeringer kan tages",
+      "invest.no_investments": "§6%s §char ikke nogen investeringer",
+      "Invest.JoinTitle_Header": "§4§lDine investeringer",
+      "Invest.JoinTitle_Desc": "§4§lkan tages!!"
+    },
+    "Interest": {
+      "frihedsbanken.header": "§6§m-----§6[§bFriheds§6-§bBanken§6]§6§m-----",
+      "frihedsbanken.next_payout": "§aNæste udbetaling: §6%s",
+      "frihedsbanken.time_until_payout": "§aDu får udbetalt renter igen om: §6%s minutter og %s sekunder"
     }
   },
   "freakyvilleaddon": {
@@ -187,7 +239,8 @@
           "name": "BetterCells",
           "print": {
             "name": "Genindlæs Celler",
-            "text": "Klik her!"
+            "text": "Klik her!",
+            "message": "§6Genindlæser celler."
           },
           "getBetterCellsLocation": {
             "name": "Celle Lokationer"

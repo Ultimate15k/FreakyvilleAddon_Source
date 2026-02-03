@@ -37,7 +37,9 @@ public class NameTagClearCommand extends SubCommand {
     if (playerManager.isEmpty()) {
       TextColor color = TextColor.color(addon.configuration().getNameTagMessageColor().get().get());
       addon.displayMessage(
-          Component.text("Der er ikke nogle spillere tilføjet til CustomNameTags").color(color));
+          Component.translatable("NT.no_players")
+              .color(color)
+      );
       return;
     }
     playerManager.clear();

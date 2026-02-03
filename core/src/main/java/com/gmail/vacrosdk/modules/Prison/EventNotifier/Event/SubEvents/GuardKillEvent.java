@@ -7,6 +7,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.labymod.api.event.client.chat.ChatReceiveEvent;
 
+/**
+ * This is not a language file.
+ * Instead, this represents a thing on the server the addon is made for
+ */
+
 public class GuardKillEvent extends NotificationEvent {
 
   Pattern pattern = Pattern.compile("dræbt af §e§l");
@@ -28,14 +33,8 @@ public class GuardKillEvent extends NotificationEvent {
   }
 
   private void doTitle(String text) {
-    addon.logger().info("doTitle: Method start" );
     String replace = text.replace("§8§l| §b§lFV§7§l-§b§lPRISON §8§l|", "");
-    addon.logger().info("doTitle: Method 1" );
     String[] split = replace.split("dræbt");
-    addon.logger().info("doTitle: Method 2:" );
-    addon.logger().info("doTitle: split0: " + split[0] );
-    addon.logger().info("doTitle: split1: " + split[1] );
     Utils.showTitle(split[0], "§7§ldræbt" + split[1]);
-    addon.logger().info("doTitle: Method end" );
   }
 }

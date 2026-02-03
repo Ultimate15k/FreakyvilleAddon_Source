@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import net.labymod.api.client.chat.command.Command;
+import net.labymod.api.util.I18n;
 import net.labymod.api.util.logging.Logging;
 
 public class Renter extends Command {
@@ -25,9 +26,10 @@ public class Renter extends Command {
       LocalTime nextTime = findNextTime(currentTime);
       long[] timeUntilNextTime = calculateTimeUntilNextTime(currentTime, nextTime);
 
-      this.displayMessage("§6§m-----§6[§bFriheds§6-§bBanken§6]§6§m-----");
-      this.displayMessage("§aNæste udbetaling: §6" + nextTime);
-      this.displayMessage("§aDu får udbetalt renter igen om: §6" + timeUntilNextTime[0] + " minutter og " + timeUntilNextTime[1] + " sekunder");
+      addon.displayMessage(I18n.translate("Friheden.Interest.frihedsbanken.header"));
+      addon.displayMessage(I18n.translate("Friheden.Interest.frihedsbanken.next_payout", nextTime));
+      addon.displayMessage(I18n.translate("Friheden.Interest.frihedsbanken.time_until_payout", timeUntilNextTime[0], timeUntilNextTime[1]));
+
 
       return true;
     } else {

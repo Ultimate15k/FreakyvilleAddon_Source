@@ -7,6 +7,7 @@ import net.labymod.api.client.component.Component;
 import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.chat.ChatReceiveEvent;
+import net.labymod.api.util.I18n;
 import net.labymod.api.util.logging.Logging;
 import java.awt.*;
 import java.io.IOException;
@@ -47,7 +48,9 @@ public class ChatListener {
   private void handleMessage2(ChatReceiveEvent event, String message) {
     Matcher matcher = pattern2.matcher(message);
     if (matcher.find()) {
-      event.setMessage(Component.text(message.replace(message, "§bLokation: §7" + getCellDetails(typeCell,CellNumber,"Desc"))));
+      event.setMessage(Component.text(
+          I18n.translate("Friheden.BetterApartments.location", getCellDetails(typeCell, CellNumber, "Desc"))
+      ));
     }
   }
 
@@ -58,9 +61,13 @@ public class ChatListener {
       try {
         String identifier = getCellDetails(matcher.group(1), matcher.group(2), "CellNumber");
         if (identifier.contains("No matching cell found.")) {
-          event.setMessage(Component.text("§cDer opstod en fejl, som er blevet reporteret. \n" + message));
-          Logging.getLogger().error("§cDer opstod en fejl, som er blevet reporteret. \n" + message);
-          SendErrorWebhook(matcher);
+          event.setMessage(Component.text(
+              I18n.translate("labymod.error.message", message)
+          ));
+          Logging.getLogger().error(
+              I18n.translate("labymod.error.message", message)
+          );
+//          SendErrorWebhook(matcher);
           return;
         }
         doFinalMessage(event, message, identifier);

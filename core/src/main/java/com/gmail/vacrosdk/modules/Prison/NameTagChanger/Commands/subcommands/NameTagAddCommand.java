@@ -25,7 +25,10 @@ public class NameTagAddCommand extends SubCommand {
     }
     if (arguments.length == 0) {
       TextColor color = TextColor.color(addon.configuration().getNameTagMessageColor().get().get());
-      addon.displayMessage(Component.text("/nt add <playerName>").color(color));
+      addon.displayMessage(
+          Component.translatable("NT.add")
+              .color(color)
+      );
       return true;
     }
     String[] newArguments = {arguments[0]};
@@ -41,7 +44,10 @@ public class NameTagAddCommand extends SubCommand {
   private void doAdd(String[] arguments) {
     TextColor color = TextColor.color(addon.configuration().getNameTagMessageColor().get().get());
     if (!(arguments.length == 1)) {
-      this.displayMessage(Component.text("/nt <playerName>").color(color));
+      addon.displayMessage(
+          Component.translatable("NT.show")
+              .color(color)
+      );
       return;
     }
     playerManager.add(arguments[0], color);

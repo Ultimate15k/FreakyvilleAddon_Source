@@ -51,8 +51,8 @@ public class MessageCatchLanguage {
   public static String C_VV_CONFIRMATION = null;
   public static String C_VV_UPDATE = "Røveri: Du kan først røve her igen om";
 
-  public static String CM_VV_CATCH = "har haft fingrene i Vagt-Vaulten i C!";
-  public static String CM_VV_CONFIRMATION = null;
+  public static String CM_VV_CATCH = "truer Lenny med tæsk i C-MAX Området!";
+  public static String CM_VV_CONFIRMATION = "at røve stakkels Lenny i C-MAX Området!";
   public static String CM_VV_UPDATE = "Du kan først snakke med Lenny igen om ";
 
   public static String GANGAREA_UPDATE = "Du kan først overtage territoriet igen om ";

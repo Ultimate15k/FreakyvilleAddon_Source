@@ -36,9 +36,9 @@ public class ChestListener {
     Utils utils = new Utils(addon);
     ClientPlayer p = addon.labyAPI().minecraft().getClientPlayer();
 
-    double playerX = p.getPosX();
-    double playerY = p.getPosY();
-    double playerZ = p.getPosZ();
+    double playerX = p.position().getX();
+    double playerY = p.position().getY();
+    double playerZ = p.position().getZ();
 
     utils.SendDebugMessage("Player coordinates: X=" + playerX + ", Y=" + playerY + ", Z=" + playerZ);
 

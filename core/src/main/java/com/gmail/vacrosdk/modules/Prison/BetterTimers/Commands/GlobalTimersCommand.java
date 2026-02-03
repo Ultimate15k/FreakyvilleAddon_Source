@@ -20,7 +20,7 @@ public class GlobalTimersCommand extends Command {
     if (moduleIsDisabled() || playerIsOnGuard(addon)) return false;
 
     TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
-    addon.displayMessage(Component.text("Liste over globale timers:").color(textColor));
+    addon.displayMessage(Component.translatable("Prison.BetterTimers.global_header").color(textColor));
     HotSpots.A_VAULT.getHotSpot().printGlobal(addon);
     HotSpots.APLUS_BANK.getHotSpot().printGlobal(addon);
     HotSpots.A_GANGAREA.getHotSpot().printGlobal(addon);

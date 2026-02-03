@@ -21,7 +21,7 @@ public class PersonalTimersCommand extends Command {
       return false;
     }
     TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
-    addon.displayMessage(Component.text("Liste over personlige timers:").color(textColor));
+    addon.displayMessage(Component.translatable("Prison.BetterTimers.personal_header").color(textColor));
     HotSpots.APLUS_BANK.getHotSpot().printPersonal(addon);
     HotSpots.A_VAULT.getHotSpot().printPersonal(addon);
     HotSpots.B_VAULT.getHotSpot().printPersonal(addon);

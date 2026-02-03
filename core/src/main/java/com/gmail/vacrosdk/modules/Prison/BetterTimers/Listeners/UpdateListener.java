@@ -83,9 +83,9 @@ public class UpdateListener {
   public String getClosestCoordSet() {
     ClientPlayer p = addon.labyAPI().minecraft().getClientPlayer();
 
-    double playerX = p.getPosX();
-    double playerY = p.getPosY();
-    double playerZ = p.getPosZ();
+    double playerX = p.position().getX();
+    double playerY = p.position().getY();
+    double playerZ = p.position().getZ();
 
     double distanceSquaredToCoord1 = calculateDistanceSquared(playerX, playerY, playerZ, 627.455, 74.0, 215.458); //Aplus
     double distanceSquaredToCoord2 = calculateDistanceSquared(playerX, playerY, playerZ, 17.560, 66.0, -419.374); //Bplus

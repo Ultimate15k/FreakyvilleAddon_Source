@@ -25,7 +25,6 @@ public class ChestUpdateListener {
     if (!isModuleDisabled()) {
       String text = event.chatMessage().getFormattedText();
       if(text.contains("viceværten")) {
-        System.out.println("text: " + text);
         Matcher matcher = pattern1.matcher(text);
         if (matcher.find()) {
           String playerName = addon.labyAPI().getName();
@@ -45,9 +44,9 @@ public class ChestUpdateListener {
     Utils utils = new Utils(addon);
     ClientPlayer p = addon.labyAPI().minecraft().getClientPlayer();
 
-    double playerX = p.getPosX();
-    double playerY = p.getPosY();
-    double playerZ = p.getPosZ();
+    double playerX = p.position().getX();
+    double playerY = p.position().getY();
+    double playerZ = p.position().getZ();
 
     utils.SendDebugMessage("Player coordinates: X=" + playerX + ", Y=" + playerY + ", Z=" + playerZ);
 

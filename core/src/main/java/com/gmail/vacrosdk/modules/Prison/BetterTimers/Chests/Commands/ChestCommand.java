@@ -4,6 +4,8 @@ import com.gmail.vacrosdk.FreakyvilleAddon;
 import com.gmail.vacrosdk.utils.Utils;
 import net.labymod.api.client.chat.command.Command;
 import net.labymod.api.client.entity.player.ClientPlayer;
+import net.labymod.api.util.I18n;
+
 import static com.gmail.vacrosdk.utils.TimerFunctions.*;
 
 public class ChestCommand extends Command {
@@ -21,12 +23,13 @@ public class ChestCommand extends Command {
       return false;
     }
 
-    addon.displayMessage("§3★§f✩§3★ §3§lKister ★§f✩§3★");
-//    String closestHotSpot = getClosestCoordSet();
+    // HEADER
+    addon.displayMessage(I18n.translate("Prison.Chest.header"));
+
     String playerName = addon.labyAPI().getName();
 
     if (!playerFileExists(playerName)) {
-      addon.displayMessage("§6Ingen data");
+      addon.displayMessage(I18n.translate("Prison.Chest.no_data"));
       return true;
     }
 
@@ -35,10 +38,11 @@ public class ChestCommand extends Command {
     for (String chest : chestNames) {
       String displayName = chest.replaceFirst("chest_", "");
       String time = calculateTime(playerName, chest);
+
       if (time != null && !time.equalsIgnoreCase("Ingen Data")) {
-        addon.displayMessage("§a" + displayName + ": §6" + time);
+        addon.displayMessage(I18n.translate("Prison.Chest.entry", displayName, time));
       } else {
-        addon.displayMessage("§a" + displayName + ": §6Ingen data");
+        addon.displayMessage(I18n.translate("Prison.Chest.entry_no_data", displayName));
       }
     }
 
@@ -49,9 +53,9 @@ public class ChestCommand extends Command {
     Utils utils = new Utils(addon);
     ClientPlayer player = addon.labyAPI().minecraft().getClientPlayer();
 
-    double playerX = player.getPosX();
-    double playerY = player.getPosY();
-    double playerZ = player.getPosZ();
+    double playerX = player.position().getX();
+    double playerY = player.position().getY();
+    double playerZ = player.position().getZ();
 
     utils.SendDebugMessage("Player coordinates: X=" + playerX + ", Y=" + playerY + ", Z=" + playerZ);
 
@@ -90,17 +94,17 @@ public class ChestCommand extends Command {
 
   private double calculateDistance(double x, double y, double z) {
     ClientPlayer player = addon.labyAPI().minecraft().getClientPlayer();
-    double playerX = player.getPosX();
-    double playerY = player.getPosY();
-    double playerZ = player.getPosZ();
+    double playerX = player.position().getX();
+    double playerY = player.position().getY();
+    double playerZ = player.position().getZ();
 
     return Math.sqrt(Math.pow(playerX - x, 2) + Math.pow(playerY - y, 2) + Math.pow(playerZ - z, 2));
   }
 
   private boolean isModuleDisabled() {
-    return !addon.configuration().getChestTimer().get() ||
-        !addon.configuration().enabled().get() ||
-        !addon.configuration().getPrisonEnabled().get()||
-        !addon.configuration().getHasfileAccess().get();
+    return !addon.configuration().getChestTimer().get()
+        || !addon.configuration().enabled().get()
+        || !addon.configuration().getPrisonEnabled().get()
+        || !addon.configuration().getHasfileAccess().get();
   }
 }

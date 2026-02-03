@@ -126,9 +126,9 @@ public class CatchListener {
       throw new IllegalStateException("Player is not available.");
     }
 
-    double playerX = player.getPosX();
-    double playerY = player.getPosY();
-    double playerZ = player.getPosZ();
+    double playerX = player.position().getX();
+    double playerY = player.position().getY();
+    double playerZ = player.position().getZ();
 
     double distanceToC = calculateDistance(playerX, playerY, playerZ, C_X, C_Y, C_Z);
     double distanceToA = calculateDistance(playerX, playerY, playerZ, A_X, A_Y, A_Z);

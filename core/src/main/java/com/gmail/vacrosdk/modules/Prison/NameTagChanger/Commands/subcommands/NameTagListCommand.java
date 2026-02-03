@@ -31,8 +31,10 @@ public class NameTagListCommand extends SubCommand {
   private void doList() {
     TextColor color = TextColor.color(addon.configuration().getNameTagMessageColor().get().get());
     if (playerManager.isEmpty()) {
-      this.displayMessage(
-          Component.text("Du har ikke tilføjet nogle spillere til CustomNameTags.").color(color));
+      addon.displayMessage(
+          Component.translatable("NT.no_players")
+              .color(color)
+      );
       return;
     }
     playerManager.print(color);

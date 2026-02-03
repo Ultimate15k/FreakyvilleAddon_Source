@@ -9,10 +9,12 @@ import net.labymod.api.configuration.loader.annotation.ShowSettingInParent;
 import net.labymod.api.configuration.loader.annotation.SpriteSlot;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
 import net.labymod.api.notification.Notification;
+import net.labymod.api.util.I18n;
 import net.labymod.api.util.MethodOrder;
 import net.labymod.api.util.logging.Logging;
 
 import static com.gmail.vacrosdk.utils.CSVFunctions.preloadCSV;
+import static net.labymod.api.util.I18n.getTranslation;
 
 public class BettercellsSubSettings extends Config {
 
@@ -30,12 +32,11 @@ public class BettercellsSubSettings extends Config {
   public void print() {
     String result = preloadCSV();
     Notification.Builder builder = Notification.builder()
-        .title(Component.text("§6Genindlæser celler."))
+        .title(Component.text(I18n.translate("freakyvilleaddon.settings.prisonConfig.bettercellsSubSettings.print.message")))
         .text(Component.text(result));
     Laby.labyAPI().notificationController().push(builder.build());
     Logging.getLogger().info("Reloading CSV");
   }
-
   public ConfigProperty<Boolean> getBetterCells() {
     return getBetterCells;
   }

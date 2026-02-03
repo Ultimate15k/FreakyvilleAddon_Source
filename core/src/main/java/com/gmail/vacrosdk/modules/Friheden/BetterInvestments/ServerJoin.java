@@ -5,6 +5,7 @@ import net.labymod.api.client.chat.Title;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.network.server.ServerJoinEvent;
+import net.labymod.api.util.I18n;
 
 import static com.gmail.vacrosdk.utils.TimerFunctions.*;
 
@@ -26,8 +27,8 @@ public class ServerJoin {
           boolean isOver24Hours = isDateOver24HoursAgo(playerName,"investments");
           if (isOver24Hours) {
             Title.builder()
-                .title(Component.text("§4§lDine investeringer"))
-                .subTitle(Component.text("§4§lkan tages!!"))
+                .title(Component.text(I18n.translate("Friheden.Investments.Invest.JoinTitle_Header")))
+                .subTitle(Component.text(I18n.translate("Friheden.Investments.Invest.JoinTitle_Desc")))
                 .fadeIn(5)
                 .stay(60)
                 .fadeOut(5)

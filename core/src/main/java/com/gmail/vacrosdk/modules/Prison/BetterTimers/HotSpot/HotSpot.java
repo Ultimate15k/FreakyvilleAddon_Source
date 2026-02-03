@@ -3,6 +3,7 @@ package com.gmail.vacrosdk.modules.Prison.BetterTimers.HotSpot;
 import com.gmail.vacrosdk.FreakyvilleAddon;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -63,7 +64,9 @@ public class HotSpot {
     Runnable task = () -> {
       if(addonIsEnabled(addon) && prisonIsEnabled(addon) && timerNotificationsAreEnabled(addon) && !playerIsOnGuard(addon)) {
         TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
-        addon.displayMessage(Component.text("HOV! " + hotSpotName + " kan tages om " + getNotificationTime(addon) + " minutter!").color(textColor));
+        addon.displayMessage(Component.translatable("Prison.BetterTimers.reminder", Component.text(hotSpotName), Component.text(getNotificationTime(addon))).color(textColor)
+        );
+
       }
     };
     executor.schedule(task, calculateTime(addon), TimeUnit.MINUTES);
@@ -101,11 +104,17 @@ public class HotSpot {
   public void printGlobal(FreakyvilleAddon addon) {
     if(getTimeLeft() == null) {
       TextColor textColor = TextColor.color(addon.configuration().getUnknownTimerColor().get().get());
-      addon.displayMessage(Component.text(hotSpotName + " timer: Ukendt").color(textColor));
+      addon.displayMessage(Component.translatable("Prison.BetterTimers.unknown", Component.text(hotSpotName)).color(textColor));
       return;
     }
     TextColor textColor = TextColor.color(addon.configuration().getKnownTimerColor().get().get());
-    addon.displayMessage(Component.text(hotSpotName + " timer: " + getTimeLeft()).color(textColor));
+    addon.displayMessage(
+        Component.translatable(
+            "Prison.BetterTimers.global",
+            Component.text(hotSpotName),
+            Component.text(getTimeLeft())
+        ).color(textColor)
+    );
   }
 
   public String printGlobal2() {
@@ -118,11 +127,24 @@ public class HotSpot {
   public void printPersonal(FreakyvilleAddon addon) {
     if(clockSetWhenAbleToBeRobbedPersonal == null) {
       TextColor textColor = TextColor.color(addon.configuration().getUnknownTimerColor().get().get());
-      addon.displayMessage(Component.text(hotSpotName + " timer: Ikke taget").color(textColor));
+      addon.displayMessage(
+          Component.translatable(
+              "Prison.BetterTimers.not_taken",
+              Component.text(hotSpotName)
+          ).color(textColor)
+      );
+
       return;
     }
     TextColor textColor = TextColor.color(addon.configuration().getKnownTimerColor().get().get());
-    addon.displayMessage(Component.text(hotSpotName + " timer: " + getPersonalTimeLeft()).color(textColor));
+    addon.displayMessage(
+        Component.translatable(
+            "Prison.BetterTimers.personal",
+            Component.text(hotSpotName),
+            Component.text(Objects.requireNonNull(getPersonalTimeLeft()))
+        ).color(textColor)
+    );
+
   }
 
   public String getTimeLeft() {

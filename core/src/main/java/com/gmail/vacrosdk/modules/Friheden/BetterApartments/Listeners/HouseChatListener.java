@@ -75,8 +75,7 @@ public class HouseChatListener {
     Matcher matcher = pattern2.matcher(message);
     if (matcher.find()) {
       if(!betterApartmentsDesIsDisabled()) {
-        event.setMessage(Component.text(message.replace(message, "§bLokation: §7" + houseAreaManager.getHouseArea(
-            house2).getStringDescription())));
+        event.setMessage(Component.text(message.replace(message, I18n.translate("Friheden.BetterApartments.location" + houseAreaManager.getHouseArea(house2).getStringDescription()))));
       } else {
         event.setCancelled(true);
       }
@@ -88,7 +87,7 @@ public class HouseChatListener {
 
   private void updateMessage(ChatReceiveEvent event, String message, House house) {
     if(houseAreaDoesNotExist(house)) {
-      event.setMessage(Component.text("§cDer opstod en fejl, som er blevet reporteret. \n"+ message));
+      event.setMessage(Component.text(I18n.translate("Friheden.BetterApartments.error" + message)));
 //      SendErrorWebhook(house);
       return;
     }

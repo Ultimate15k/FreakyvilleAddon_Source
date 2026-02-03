@@ -47,7 +47,12 @@ public class ConfirmListener {
             catchManager.removeFromSetContains(hotSpot);
             if (BetterTimersMessagesIsEnabled() && !playerIsOnGuard(addon)) {
               TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
-              addon.displayMessage(Component.text("BetterTimers detected: " + hotSpot.getHotSpotName() + " has confirmed").color(textColor));
+              addon.displayMessage(
+                  Component.translatable(
+                      "Prison.BetterTimers.confirmed",
+                      Component.text(hotSpot.getHotSpotName())
+                  ).color(textColor)
+              );
             }
           }
         } else if(hotSpot.getHotSpotName().contains("C Bandeomr")) {
@@ -57,8 +62,12 @@ public class ConfirmListener {
             catchManager.removeFromSetContains(hotSpot);
             if (BetterTimersMessagesIsEnabled() && !playerIsOnGuard(addon)) {
               TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
-              addon.displayMessage(Component.text("BetterTimers detected: " + hotSpot.getHotSpotName() + " has confirmed").color(textColor));
-            }
+              addon.displayMessage(
+                  Component.translatable(
+                      "Prison.BetterTimers.confirmed",
+                      Component.text(hotSpot.getHotSpotName())
+                  ).color(textColor)
+              );            }
           }
         } else {
           handlePersonalCoolDown(hotSpot, message);
@@ -66,8 +75,12 @@ public class ConfirmListener {
           catchManager.removeFromSetContains(hotSpot);
           if (BetterTimersMessagesIsEnabled() && !playerIsOnGuard(addon)) {
             TextColor textColor = TextColor.color(addon.configuration().getMainTimerColor().get().get());
-            addon.displayMessage(Component.text("BetterTimers detected: " + hotSpot.getHotSpotName() + " has confirmed").color(textColor));
-          }
+            addon.displayMessage(
+                Component.translatable(
+                    "Prison.BetterTimers.confirmed",
+                    Component.text(hotSpot.getHotSpotName())
+                ).color(textColor)
+            );          }
         }
       }
     });
@@ -93,9 +106,9 @@ public class ConfirmListener {
       throw new IllegalStateException("Player is not available.");
     }
 
-    double playerX = player.getPosX();
-    double playerY = player.getPosY();
-    double playerZ = player.getPosZ();
+    double playerX = player.position().getX();
+    double playerY = player.position().getY();
+    double playerZ = player.position().getZ();
 
     double distanceToC = calculateDistance(playerX, playerY, playerZ, C_X, C_Y, C_Z);
     double distanceToA = calculateDistance(playerX, playerY, playerZ, A_X, A_Y, A_Z);

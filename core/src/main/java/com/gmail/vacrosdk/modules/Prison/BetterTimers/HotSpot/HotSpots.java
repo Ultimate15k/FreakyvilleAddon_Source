@@ -2,6 +2,12 @@ package com.gmail.vacrosdk.modules.Prison.BetterTimers.HotSpot;
 
 import com.gmail.vacrosdk.language.MessageCatchLanguage;
 
+/**
+ * This is not a language file.
+ * Instead, this represents a chat message pattern or text
+ * that the addon will listen for and then trigger something.
+ */
+
 public enum HotSpots {
 
   APLUS_BANK(new HotSpot(
@@ -11,7 +17,7 @@ public enum HotSpots {
       MessageCatchLanguage.APLUS_BANK_UPDATE,
       60,
       10,
-      10,
+      14,
       720)),
   APLUS_GANGAREA(new HotSpot(
       "A+ Bandeområdet",
@@ -108,8 +114,8 @@ public enum HotSpots {
       MessageCatchLanguage.CM_VV_CATCH,
       MessageCatchLanguage.CM_VV_CONFIRMATION,
       MessageCatchLanguage.CM_VV_UPDATE,
-      30,
-      5,
+      28,
+      10,
       15,
       120)),
   A_ROCKER_TORBEN(new HotSpot(

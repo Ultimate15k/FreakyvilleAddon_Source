@@ -34,7 +34,10 @@ public class NameTagCommand extends Command {
     if(prefix.equalsIgnoreCase("nt")) {
       if(arguments.length == 0) {
         TextColor color = TextColor.color(addon.configuration().getNameTagMessageColor().get().get());
-        addon.displayMessage(Component.text("/nt <add/remove/players/clear> <playerName>").color(color));
+        addon.displayMessage(
+            Component.translatable("NT.usage")
+                .color(color)
+        );
       }
     }
     return true;

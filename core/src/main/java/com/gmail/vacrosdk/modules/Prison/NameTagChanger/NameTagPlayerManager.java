@@ -18,24 +18,44 @@ public class NameTagPlayerManager {
 
   public void add(String username, TextColor color) {
     if(playerMap.containsKey(username.toLowerCase())) {
-      addon.displayMessage(Component.text("This person is already added to CustomNameTags.").color(color));
+      addon.displayMessage(
+          Component.translatable("NT.already_added")
+              .color(color)
+      );
       return;
     }
     playerMap.put(username.toLowerCase(), true);
-    addon.displayMessage(Component.text("You added " + username + " to CustomNameTags.").color(color));
+    addon.displayMessage(
+        Component.translatable(
+            "NT.added",
+            Component.text(username)
+        ).color(color)
+    );
+
   }
 
   public void remove(String username, TextColor color) {
     if(!playerMap.containsKey(username.toLowerCase())) {
-      addon.displayMessage(Component.text("This person is not added to CustomNameTags.").color(color));
+      addon.displayMessage(
+          Component.translatable("NT.not_added")
+              .color(color)
+      );
       return;
     }
     playerMap.remove(username.toLowerCase());
-    addon.displayMessage(Component.text("You removed " + username + " from CustomNameTags.").color(color));
+    addon.displayMessage(
+        Component.translatable(
+            "NT.removed",
+            Component.text(username)
+        ).color(color)
+    );
   }
 
   public void print(TextColor color) {
-    addon.displayMessage(Component.text("List of players in CustomNameTags:").color(color));
+    addon.displayMessage(
+        Component.translatable("NT.list_header")
+            .color(color)
+    );
     Collection<String> values = playerMap.keySet();
     values.forEach(value -> addon.displayMessage(Component.text("- " + value).color(color)));
   }
@@ -43,7 +63,10 @@ public class NameTagPlayerManager {
   public void clear() {
     playerMap.clear();
     TextColor color = TextColor.color(addon.configuration().getNameTagMessageColor().get().get());
-    addon.displayMessage(Component.text("You cleared all players from CustomNameTags").color(color));
+    addon.displayMessage(
+        Component.translatable("NT.cleared")
+            .color(color)
+    );
   }
 
   public boolean contains(String username) {
