@@ -6,6 +6,7 @@ import net.labymod.api.util.logging.Logging;
 
 public class DeleteFolderC extends Command {
 
+  private static final Logging LOGGER = Logging.getLogger();
   public static boolean NeedDeleteConfirm = false;
   private final FreakyvilleAddon addon;
 
@@ -28,9 +29,9 @@ public class DeleteFolderC extends Command {
         }
         NeedDeleteConfirm = false;
       } catch (InterruptedException e) {
-        Logging.getLogger().error("Thread interrupted while waiting for delete confirmation: " + e.getMessage());
+        LOGGER.error("Thread interrupted while waiting for delete confirmation: " + e.getMessage());
         for (StackTraceElement element : e.getStackTrace()) {
-          Logging.getLogger().error(element.toString());
+          LOGGER.error(element.toString());
         }
       }
     }).start();

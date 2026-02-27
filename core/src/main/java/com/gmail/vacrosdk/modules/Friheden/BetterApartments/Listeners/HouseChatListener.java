@@ -1,17 +1,10 @@
 package com.gmail.vacrosdk.modules.Friheden.BetterApartments.Listeners;
 
 import com.gmail.vacrosdk.FreakyvilleAddon;
-import com.gmail.vacrosdk.discord.WebHook;
-import com.gmail.vacrosdk.discord.WebHook.EmbedObject;
 import com.gmail.vacrosdk.modules.Friheden.BetterApartments.House.Area.HouseAreaManager;
 import com.gmail.vacrosdk.modules.Friheden.BetterApartments.House.House;
 import com.gmail.vacrosdk.modules.Friheden.BetterApartments.House.HouseIdentifier;
 import com.gmail.vacrosdk.utils.Utils;
-import java.awt.*;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.labymod.api.client.component.Component;
@@ -19,7 +12,6 @@ import net.labymod.api.client.component.format.NamedTextColor;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.chat.ChatReceiveEvent;
 import net.labymod.api.util.I18n;
-import net.labymod.api.util.logging.Logging;
 
 public class HouseChatListener {
 
@@ -88,7 +80,6 @@ public class HouseChatListener {
   private void updateMessage(ChatReceiveEvent event, String message, House house) {
     if(houseAreaDoesNotExist(house)) {
       event.setMessage(Component.text(I18n.translate("Friheden.BetterApartments.error" + message)));
-//      SendErrorWebhook(house);
       return;
     }
     doFinalMessage(event, message, house);
@@ -102,29 +93,5 @@ public class HouseChatListener {
 
   private boolean houseAreaDoesNotExist(House house) {
     return houseAreaManager.getHouseArea(house) == null;
-  }
-
-  private void SendErrorWebhook(House house) {
-    WebHook webHook = new WebHook("https://discord.com/api/webhooks/1100819093835235439/aUdWS5bOwFMXF2AsmiP17xRmPAWczpELif2uY4yjoNZQ35TP-KJWBBKiioMj6Ec01Z--");
-    EmbedObject embed = new EmbedObject();
-    embed.setTitle("FrihedenAddon - Celle fejl");
-    embed.setColor(Color.RED);
-    embed.addField("Navn:", Objects.requireNonNull(addon.labyAPI().minecraft().getClientPlayer()).getName(), false);
-    embed.addField("Version:", String.valueOf(addon.addonInfo().getVersion()), false);
-    embed.addField("Identifier:", house.getIdentifier().getStringIdentifier(), false);
-    embed.addField("Number:", String.valueOf(house.getHouseNumber()), false);
-    LocalDateTime now = LocalDateTime.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-    embed.setFooter(now.format(formatter), "");
-    webHook.addEmbed(embed);
-
-    try {
-      webHook.execute();
-    } catch (IOException var6) {
-      Logging.getLogger().error("IOException occurred: " + var6.getMessage());
-      for (StackTraceElement element : var6.getStackTrace()) {
-        Logging.getLogger().error(element.toString());
-      }
-    }
   }
 }

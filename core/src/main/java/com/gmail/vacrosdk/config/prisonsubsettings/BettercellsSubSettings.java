@@ -14,9 +14,10 @@ import net.labymod.api.util.MethodOrder;
 import net.labymod.api.util.logging.Logging;
 
 import static com.gmail.vacrosdk.utils.CSVFunctions.preloadCSV;
-import static net.labymod.api.util.I18n.getTranslation;
 
 public class BettercellsSubSettings extends Config {
+
+  private static final Logging LOGGER = Logging.getLogger();
 
   @ShowSettingInParent
   @SwitchSetting
@@ -29,13 +30,14 @@ public class BettercellsSubSettings extends Config {
   @MethodOrder(after = "getBetterCellsLocation")
   @SpriteSlot(y = 3, x = 7)
   @ButtonSetting
+  @SuppressWarnings("unused")
   public void print() {
     String result = preloadCSV();
     Notification.Builder builder = Notification.builder()
         .title(Component.text(I18n.translate("freakyvilleaddon.settings.prisonConfig.bettercellsSubSettings.print.message")))
         .text(Component.text(result));
     Laby.labyAPI().notificationController().push(builder.build());
-    Logging.getLogger().info("Reloading CSV");
+    LOGGER.info("Reloading CSV");
   }
   public ConfigProperty<Boolean> getBetterCells() {
     return getBetterCells;

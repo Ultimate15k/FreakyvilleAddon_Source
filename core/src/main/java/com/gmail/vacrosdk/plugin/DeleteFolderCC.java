@@ -7,6 +7,7 @@ import java.io.File;
 
 public class DeleteFolderCC extends Command {
 
+  private static final Logging LOGGER = Logging.getLogger();
   private final FreakyvilleAddon addon;
   private static final String folderPath = "FreakyvilleAddon/";
 
@@ -43,12 +44,12 @@ public class DeleteFolderCC extends Command {
           }
         }
         folder.delete();
-        Logging.getLogger().info("Folder " + folderPath + " deleted successfully.");
+        LOGGER.info("Folder " + folderPath + " deleted successfully.");
       } else {
-        Logging.getLogger().error("Folder " + folderPath + " does not exist.");
+        LOGGER.error("Folder " + folderPath + " does not exist.");
       }
     } catch (Exception e) {
-      Logging.getLogger().error("Error occurred while deleting folder: " + e.getMessage());
+      LOGGER.error("Error occurred while deleting folder: " + e.getMessage());
     }
   }
 

@@ -12,6 +12,7 @@ import net.labymod.api.util.logging.Logging;
 public class Renter extends Command {
 
   private final FreakyvilleAddon addon;
+  private static final Logging LOGGER = Logging.getLogger();
 
   public Renter(String prefix, FreakyvilleAddon addon) {
     super(prefix);
@@ -42,9 +43,9 @@ public class Renter extends Command {
     LocalTime nextTime = findNextTime(currentTime);
     long minutesUntilNextTime = calculateMinutesUntilNextTime(currentTime, nextTime);
 
-    Logging.getLogger().info("Current time: " + currentTime);
-    Logging.getLogger().info("Next time: " + nextTime);
-    Logging.getLogger().info("Minutes until the next time: " + minutesUntilNextTime);
+    LOGGER.info("Current time: " + currentTime);
+    LOGGER.info("Next time: " + nextTime);
+    LOGGER.info("Minutes until the next time: " + minutesUntilNextTime);
   }
 
   public static LocalTime findNextTime(LocalTime currentTime) {

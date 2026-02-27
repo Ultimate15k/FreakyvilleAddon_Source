@@ -28,6 +28,8 @@ import java.util.concurrent.TimeUnit;
 
 public class TimerFunctions {
 
+  private static final Logging LOGGER = Logging.getLogger();
+
   private static final String folderPath = "FreakyvilleAddon/players/";
   //private static final String fileName = folderPath + "players.xml";
 
@@ -167,7 +169,7 @@ public class TimerFunctions {
       StreamResult result = new StreamResult(new File(fileName));
       transformer.transform(source, result);
 
-      Logging.getLogger().info("Player data updated successfully.");
+      LOGGER.info("Player data updated successfully.");
 
     } catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
       //noinspection CallToPrintStackTrace
@@ -265,7 +267,7 @@ public class TimerFunctions {
       transformer.transform(source, result);
 
     } catch (Exception e) {
-      e.printStackTrace();
+      LOGGER.error(e.getMessage());
     }
   }
 
@@ -335,7 +337,7 @@ public class TimerFunctions {
       transformer.transform(source, result);
 
     } catch (Exception e) {
-      e.printStackTrace();
+      LOGGER.error(e.getMessage());
     }
   }
 
@@ -383,14 +385,14 @@ public class TimerFunctions {
             StreamResult result = new StreamResult(new File(fileName));
             transformer.transform(source, result);
 
-            Logging.getLogger().info("Investments date and time updated successfully.");
+            LOGGER.info("Investments date and time updated successfully.");
             return; // Exit the function after updating
           }
         }
       }
 
       // If playerName is not found, print an error message
-      Logging.getLogger().error("Player '" + playerName + "' not found.");
+      LOGGER.error("Player '" + playerName + "' not found.");
     } catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
       //noinspection CallToPrintStackTrace
       e.printStackTrace();
@@ -620,6 +622,7 @@ public class TimerFunctions {
     }
   }
 
+  @SuppressWarnings("unused")
   public static LocalDateTime subtractTime(String time) {
     String[] parts = time.split(", ");
     int hours = 0;
@@ -681,9 +684,9 @@ public class TimerFunctions {
       System.out.println("Player file updated successfully.");
 
     } catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
-      Logging.getLogger().error("Exception occurred: " + e.getMessage());
+      LOGGER.error("Exception occurred: " + e.getMessage());
       for (StackTraceElement element : e.getStackTrace()) {
-        Logging.getLogger().error(element.toString());
+        LOGGER.error(element.toString());
       }
     }
   }

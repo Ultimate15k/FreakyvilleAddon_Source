@@ -9,6 +9,7 @@ import static com.gmail.vacrosdk.utils.TimerFunctions.*;
 
 public class StatsListener {
 
+  private static final Logging LOGGER = Logging.getLogger();
   private final FreakyvilleAddon addon;
 
   public StatsListener(FreakyvilleAddon addon) {
@@ -28,7 +29,7 @@ public class StatsListener {
     if (text.contains(messagePattern)) {
       String playerName = addon.labyAPI().getName();
       updatePlayerData(playerName, statKey, 0);
-      Logging.getLogger().info("Player data saved for: " + playerName);
+      LOGGER.info("Player data saved for: " + playerName);
     }
   }
 

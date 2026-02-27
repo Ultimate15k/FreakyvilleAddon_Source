@@ -19,8 +19,10 @@ import java.util.List;
 
 public class StatsFunctions {
 
+  private static final Logging LOGGER = Logging.getLogger();
   private static final String folderPath = "FreakyvilleAddon/stats";
 
+  @SuppressWarnings("unused")
   public static void addDateToFile(String playerName, String type) {
     try {
       // Check if the folder exists, create it if not
@@ -73,6 +75,7 @@ public class StatsFunctions {
     return lineCount;
   }
 
+  @SuppressWarnings("unused")
   public static List<String> getDatesForType(String playerName, String type) {
     List<String> dates = new ArrayList<>();
     try {
@@ -120,9 +123,9 @@ public class StatsFunctions {
       }
 
     } catch (IOException e) {
-      Logging.getLogger().error("Error while deleting second line from file: " + filePath + " - " + e.getMessage());
+      LOGGER.error("Error while deleting second line from file: " + filePath + " - " + e.getMessage());
       for (StackTraceElement element : e.getStackTrace()) {
-        Logging.getLogger().error(element.toString());
+        LOGGER.error(element.toString());
       }
     }
 
@@ -130,9 +133,9 @@ public class StatsFunctions {
     try {
       Files.move(tempFile, Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
     } catch (IOException e) {
-      Logging.getLogger().error("Error replacing original file with temp file: " + filePath + " - " + e.getMessage());
+      LOGGER.error("Error replacing original file with temp file: " + filePath + " - " + e.getMessage());
       for (StackTraceElement element : e.getStackTrace()) {
-        Logging.getLogger().error(element.toString());
+        LOGGER.error(element.toString());
       }
     }
   }

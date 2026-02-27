@@ -17,6 +17,8 @@ import net.labymod.api.util.logging.Logging;
 
 public class Utils {
 
+  private static final Logging LOGGER = Logging.getLogger();
+
   private final FreakyvilleAddon addon;
 
   public Utils(FreakyvilleAddon addon) {
@@ -38,7 +40,7 @@ public class Utils {
     String playername = addon.labyAPI().getName();
     if (DebugFunctions.isDebugMode()) {
       addon.displayMessage("§7§l[§6§lFV-Addon§7§l]:§f " + message);
-      Logging.getLogger().debug(playername + ": " + message);
+      LOGGER.debug(playername + ": " + message);
     }
   }
 
@@ -60,6 +62,7 @@ public class Utils {
     }
   }
 
+  @SuppressWarnings("unused")
   public static void playSound(NotificationSound sound, float volume, float pitch) {
     Laby.labyAPI().minecraft().sounds().playSound(
         ResourceLocation.create("minecraft", sound.getSoundString()),

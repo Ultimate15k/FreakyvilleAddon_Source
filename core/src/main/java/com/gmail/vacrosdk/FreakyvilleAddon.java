@@ -75,9 +75,7 @@ import com.gmail.vacrosdk.modules.Prison.PlayerNotifier.PlayerNotifierManager;
 import com.gmail.vacrosdk.modules.Prison.Quest.Commands.QuestCommand;
 import com.gmail.vacrosdk.modules.Prison.vagt.VagtLeaveListener;
 import com.gmail.vacrosdk.plugin.CampCommand;
-import com.gmail.vacrosdk.plugin.FvCommand;
 import com.gmail.vacrosdk.plugin.Stats.StatsCommand;
-import com.gmail.vacrosdk.plugin.VersionCommand;
 import com.gmail.vacrosdk.utils.Utils;
 import com.gmail.vacrosdk.utils.debug.DebugCommand;
 import net.labymod.api.addon.LabyAddon;
@@ -112,7 +110,7 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
 
     Utils.createNotification("FreakyvilleAddon", "Addon er aktiveret! Version: (" + addonInfo().getVersion() + ")", Icon.head(this.labyAPI().getName()));
 
-    preloadCSV();  // Preloading the CSV data
+    preloadCSV();
     this.logger().info("CSV data successfully preloaded.");
 
     isOnlineOnFreakyville = true;
@@ -159,8 +157,7 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
   private void handleMainPlugin() {
     this.registerListener(new FreakyvilleConnectionListener(this));
     this.registerCommand(new CampCommand("camp", playerNotifierPlayerManager, nameTagPlayerManager, this));
-    this.registerCommand(new VersionCommand("version", this));
-    this.registerCommand(new FvCommand("fv", this));
+//    this.registerCommand(new FvCommand("fv", this));
     this.registerCommand(new QuestCommand("quests", this));
     this.registerCommand(new DebugCommand("addonhid", this));
     this.registerCommand(new StatsCommand("stats", this));
