@@ -43,7 +43,6 @@ public class CatchListener {
     keySet.forEach(hotspot -> {
       if(message.contains(hotspot.getCatchMessage())) {
         String ClosesthotSpot = getClosesthotSpot();
-        System.out.println("1: " + ClosesthotSpot);
         if(hotspot.getHotSpotName().contains("A Bandeomr")) {
           if (ClosesthotSpot.equalsIgnoreCase("A")) {
             if (hotspotIsCOrBVault(hotspot)) {

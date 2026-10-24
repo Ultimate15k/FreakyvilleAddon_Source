@@ -17,7 +17,7 @@ public enum HotSpots {
       MessageCatchLanguage.APLUS_BANK_UPDATE,
       60,
       10,
-      14,
+      16,
       720)),
   APLUS_GANGAREA(new HotSpot(
       "A+ Bandeområdet",
@@ -53,7 +53,7 @@ public enum HotSpots {
       MessageCatchLanguage.BPLUS_VV_UPDATE,
       70,
       10,
-      13,
+      15,
       720)),
   B_VAULT(new HotSpot(
       "B Vagtvault",
@@ -81,7 +81,7 @@ public enum HotSpots {
       15,
       5,
       60,
-      120)),
+      180)),
   B_PVP_CHEST(new HotSpot(
       "Den hemmelige chest",
       MessageCatchLanguage.B_PVP_CHEST_CATCH,

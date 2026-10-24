@@ -40,7 +40,7 @@ public class Utils {
     String playername = addon.labyAPI().getName();
     if (DebugFunctions.isDebugMode()) {
       addon.displayMessage("§7§l[§6§lFV-Addon§7§l]:§f " + message);
-      LOGGER.debug(playername + ": " + message);
+      System.out.println(playername + ": " + message);
     }
   }
 

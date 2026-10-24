@@ -57,9 +57,6 @@ import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.BPlusVaul
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.BPvPChestEvent;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.BVaultEvent;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.CVaultEvent;
-import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.FlipManLostFlip;
-import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.FlipManNewOffer;
-import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.FlipManWonFlip;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.GuardKillEvent;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.GuardsDisableVaultsEvent;
 import com.gmail.vacrosdk.modules.Prison.EventNotifier.Event.SubEvents.HeadEvent;
@@ -77,8 +74,10 @@ import com.gmail.vacrosdk.modules.Prison.vagt.VagtLeaveListener;
 import com.gmail.vacrosdk.plugin.CampCommand;
 import com.gmail.vacrosdk.plugin.Stats.StatsCommand;
 import com.gmail.vacrosdk.utils.Utils;
+import com.gmail.vacrosdk.utils.debug.DebugChatListener;
 import com.gmail.vacrosdk.utils.debug.DebugCommand;
 import net.labymod.api.addon.LabyAddon;
+import net.labymod.api.client.gui.hud.HudWidgetRegistry;
 import net.labymod.api.client.gui.hud.binding.category.HudWidgetCategory;
 import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.client.resources.ResourceLocation;
@@ -144,9 +143,6 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
     this.registerListener(new HeadEvent(MessageCatchLanguage.HEAD_EVENT_CATCH, this));
     this.registerListener(new GuardKillEvent(MessageCatchLanguage.GUARD_KILL_CATCH, this));
     this.registerListener(new BPvPChestEvent(MessageCatchLanguage.B_PVP_CHEST_CATCH, this));
-    this.registerListener(new FlipManNewOffer(MessageCatchLanguage.FLIPMAN_NEW_OFFER, this));
-    this.registerListener(new FlipManLostFlip(MessageCatchLanguage.FLIPMAN_LOST, this));
-    this.registerListener(new FlipManWonFlip(MessageCatchLanguage.FLIPMAN_WON, this));
   }
 
   private void handleVagt() {
@@ -157,7 +153,6 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
   private void handleMainPlugin() {
     this.registerListener(new FreakyvilleConnectionListener(this));
     this.registerCommand(new CampCommand("camp", playerNotifierPlayerManager, nameTagPlayerManager, this));
-//    this.registerCommand(new FvCommand("fv", this));
     this.registerCommand(new QuestCommand("quests", this));
     this.registerCommand(new DebugCommand("addonhid", this));
     this.registerCommand(new StatsCommand("stats", this));
@@ -175,6 +170,7 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
     this.registerListener(new InvestmentsUpdaterListener(this));
     this.registerListener(new InvestmentsTimeUpdaterListener(this));
     this.registerListener(new ServerJoin(this));
+    this.registerListener(new DebugChatListener(this));
   }
 
   private void handleCells() {
@@ -196,6 +192,14 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
     registerTimerWidgets();
 
   }
+  private static final ResourceLocation ICON_SHEET = ResourceLocation.create(
+      "freakyvilleaddon",
+      "themes/fancy/textures/settings/icons2.png");
+
+  private static Icon icon(int x, int y) {
+    return Icon.sprite16(ICON_SHEET, x, y);
+  }
+
 
   public HudWidgetCategory getWidgetCategory() {
     return this.widgetCategory;
@@ -203,175 +207,37 @@ public class FreakyvilleAddon extends LabyAddon<FreakyvilleConfig> {
 
   private void registerTimerWidgets() {
     this.registerListener(new WidgetUpdater(this));
-    labyAPI().hudWidgetRegistry().register(new AVaultDisabledTextHudWidget(
-        "Vaults_disabled_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            5,
-            0),
-        this));
-    labyAPI().hudWidgetRegistry().register(new APlusVaultTimerTextHudWidget(
-        "A+_Vault_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            0,
-            0),
-        this));
-    labyAPI().hudWidgetRegistry().register(new AVaultTimerTextHudWidget(
-        "A_Vault_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            1,
-            0),
-        this));
-    labyAPI().hudWidgetRegistry().register(new BPlusBankTimerTextHudWidget(
-        "Vaults_b_widget",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            2,
-            0)));
-    labyAPI().hudWidgetRegistry().register(new BVaultTimerTextHudWidget(
-        "B_Vault_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            3,
-            0),
-        this));
-    labyAPI().hudWidgetRegistry().register(new CVaultTimerTextHudWidget(
-        "C_Vault_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            4,
-            0),
-        this));
-    labyAPI().hudWidgetRegistry().register(new CMVaultTimerTextHudWidget(
-        "CM_Vault_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            4,
-            0),
-        this));
-    labyAPI().hudWidgetRegistry().register(new APlusGangAreaTimerTextHudWidget(
-        "A+_Bandeområde_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            0,
-            1),
-        this));
-    labyAPI().hudWidgetRegistry().register(new AGangAreaTimerTextHudWidget(
-        "A_Bandeområde_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            1,
-            1),
-        this));
-    labyAPI().hudWidgetRegistry().register(new BPlusGangAreaTimerTextHudWidget(
-        "B+_GangArea_Timer",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            2,
-            1)));
-    labyAPI().hudWidgetRegistry().register(new BGangAreaTimerWidget(
-        "B_GangArea_Timer",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            3,
-            1)));
-    labyAPI().hudWidgetRegistry().register(new CGangAreaTimerWidget(
-        "C_GangArea_Timer",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            3,
-            3)));
-    labyAPI().hudWidgetRegistry().register(new BPvPChestTimerTextHudWidget(
-        "B_PvPChest_Timer",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            4,
-            1)));
-    labyAPI().hudWidgetRegistry().register(new RockerTorbenTimerTextHudWidget(
-        "Rocker_Torben_widget",
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            5,
-            1),
-        this));
-    labyAPI().hudWidgetRegistry().register(new GangJoinCooldownTimerTextHudWidget(
-        "Gang_Cooldown_GangArea_Timer",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            2,
-            1)));
 
-    labyAPI().hudWidgetRegistry().register(new chest_FitnessTimerTextHudWidget(
-        "chest_FitnessTimerTextHudWidget",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            2,
-            2)));
-    labyAPI().hudWidgetRegistry().register(new chest_MinenTimerTextHudWidget(
-        "chest_MinenTimerTextHudWidget",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            3,
-            2)));
-    labyAPI().hudWidgetRegistry().register(new chest_MrXTimerTextHudWidget(
-        "chest_MrXTimerTextHudWidget",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            1,
-            2)));
-    labyAPI().hudWidgetRegistry().register(new chest_SortPortalTimerTextHudWidget(
-        "chest_SortPortalTimerTextHudWidget",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            5,
-            2)));
-    labyAPI().hudWidgetRegistry().register(new chest_TankStationTimerTextHudWidget(
-        "chest_TankStationTimerTextHudWidget",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            0,
-            2)));
-    labyAPI().hudWidgetRegistry().register(new chest_TreeTimerTextHudWidget(
-        "chest_TreeTimerTextHudWidget",
-        this,
-        Icon.sprite16(ResourceLocation.create(
-                "freakyvilleaddon",
-                "themes/fancy/textures/settings/icons2.png"),
-            4,
-            2)));
+    HudWidgetRegistry registry = labyAPI().hudWidgetRegistry();
+
+    // Vaults (id, icon, addon)
+    registry.register(new AVaultDisabledTextHudWidget("Vaults_disabled_widget", icon(5, 0), this));
+    registry.register(new APlusVaultTimerTextHudWidget("A+_Vault_widget", icon(0, 0), this));
+    registry.register(new AVaultTimerTextHudWidget("A_Vault_widget", icon(1, 0), this));
+    registry.register(new BPlusBankTimerTextHudWidget("B+_Vault_widget", icon(2, 0), this));
+    registry.register(new BVaultTimerTextHudWidget("B_Vault_widget", icon(3, 0), this));
+    registry.register(new CVaultTimerTextHudWidget("C_Vault_widget", icon(4, 0), this));
+    registry.register(new CMVaultTimerTextHudWidget("CM_Vault_widget", icon(4, 0), this));
+
+    // Gang areas (id, icon, addon)
+    registry.register(new APlusGangAreaTimerTextHudWidget("A+_Bandeområde_widget", icon(0, 1), this));
+    registry.register(new AGangAreaTimerTextHudWidget("A_Bandeområde_widget", icon(1, 1), this));
+    registry.register(new BPlusGangAreaTimerTextHudWidget("B+_GangArea_Timer", icon(2, 1), this));
+    registry.register(new BGangAreaTimerWidget("B_GangArea_Timer", icon(3, 1), this));
+    registry.register(new CGangAreaTimerWidget("C_GangArea_Timer", icon(3, 3), this));
+
+    // (id, icon, addon)
+    registry.register(new BPvPChestTimerTextHudWidget("B_PvPChest_Timer", icon(4, 1), this));
+    registry.register(new RockerTorbenTimerTextHudWidget("Rocker_Torben_widget", icon(5, 1), this));
+    registry.register(new GangJoinCooldownTimerTextHudWidget("Gang_Cooldown_GangArea_Timer", icon(2, 1), this));
+
+    // Chests (id, icon, addon)
+    registry.register(new chest_TankStationTimerTextHudWidget("chest_TankStationTimerTextHudWidget", icon(0, 2), this));
+    registry.register(new chest_MrXTimerTextHudWidget("chest_MrXTimerTextHudWidget", icon(1, 2), this));
+    registry.register(new chest_FitnessTimerTextHudWidget("chest_FitnessTimerTextHudWidget", icon(2, 2), this));
+    registry.register(new chest_MinenTimerTextHudWidget("chest_MinenTimerTextHudWidget", icon(3, 2), this));
+    registry.register(new chest_TreeTimerTextHudWidget("chest_TreeTimerTextHudWidget", icon(4, 2), this));
+    registry.register(new chest_SortPortalTimerTextHudWidget("chest_SortPortalTimerTextHudWidget", icon(5, 2), this));
   }
 
   private void handleCustomNameTags() {

@@ -79,10 +79,7 @@ public class MessageCatchLanguage {
 
   //Speciel events
   public static final String STRING_CAUGHT_CATCH = "Du fangede et item der automatisk kom ind i dit inventory!";
-  public static final String BO_LOOT_CLAIM = "Godt gået! Din bande har nu overtaget Bande territoriet!";
+  public static final String BO_LOOT_CLAIM = "§bHøjreklik §dLoot Chesten§b for at claime din reward inden for";
   public static final String HEAD_EVENT_CATCH = "O Shit O shit O shit";
   public static final String GUARD_KILL_CATCH = "af §e§l";
-  public static final String FLIPMAN_NEW_OFFER = "§6[§e§lItemFlip]§a§l Du har modtaget et modbud på et af dine multi flips"; //§6[§e§lItemFlip§6] §aDu har modtaget et modbud på et af dine multi flips
-  public static final String FLIPMAN_WON = "§6[§e§lItemFlip§6]§e §a§lTillykke, du har vundet flippet!";
-  public static final String FLIPMAN_LOST = "§6[§e§lItemFlip]§c§l Desværre, du har tabt flippet";
 }

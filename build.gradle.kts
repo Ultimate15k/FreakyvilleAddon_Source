@@ -6,7 +6,7 @@ plugins {
 val versions = providers.gradleProperty("net.labymod.minecraft-versions").get().split(";")
 
 group = "com.gmail.vacrosdk"
-version = providers.environmentVariable("VERSION").getOrElse("2.2.4")
+version = providers.environmentVariable("VERSION").getOrElse("2.2.5")
 
 labyMod {
     defaultPackageName = "com.gmail.vacrosdk" //change this to your main package name (used by all modules)
@@ -38,4 +38,13 @@ subprojects {
 
     group = rootProject.group
     version = rootProject.version
+
+    extensions.findByType(JavaPluginExtension::class.java)?.apply {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+}
+
+tasks.named("build") {
+    dependsOn("createReleaseJar")
 }

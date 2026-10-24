@@ -7,7 +7,7 @@ import net.labymod.api.client.gui.icon.Icon;
 
 public class BPlusBankTimerTextHudWidget extends TimerWidget {
 
-  public BPlusBankTimerTextHudWidget(String id, FreakyvilleAddon addon, Icon icon) {
+  public BPlusBankTimerTextHudWidget(String id, Icon icon, FreakyvilleAddon addon) {
     super(id, addon, icon);
   }
 

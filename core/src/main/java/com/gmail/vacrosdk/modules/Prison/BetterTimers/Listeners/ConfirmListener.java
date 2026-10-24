@@ -39,7 +39,6 @@ public class ConfirmListener {
     confirmSet.forEach(hotSpot -> {
       if(message.contains(hotSpot.getConfirmMessage())) {
         String ClosesthotSpot = getClosesthotSpot();
-        System.out.println("2: " + ClosesthotSpot);
         if(hotSpot.getHotSpotName().contains("A Bandeomr")) {
           if (ClosesthotSpot.equalsIgnoreCase("A")) {
             handlePersonalCoolDown(hotSpot, message);

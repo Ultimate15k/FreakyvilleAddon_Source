@@ -28,7 +28,7 @@ public class WidgetUpdater {
   }
 
   private void doAction() {
-    addon.labyAPI().hudWidgetRegistry().updateHudWidgets();
+    addon.labyAPI().hudWidgetRegistry().updateHudWidgets("");
   }
 
   private boolean moduleIsDisabled() {

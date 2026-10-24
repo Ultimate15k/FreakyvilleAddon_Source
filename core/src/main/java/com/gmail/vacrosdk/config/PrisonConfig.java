@@ -215,18 +215,6 @@ public class PrisonConfig extends Config {
     return eventNotifierSubSettings.getBPvpChestEvent();
   }
 
-  public ConfigProperty<Boolean> getFlipLostEvent() {
-    return eventNotifierSubSettings.getFlipLostEvent();
-  }
-
-  public ConfigProperty<Boolean> getFlipNewOfferEvent() {
-    return eventNotifierSubSettings.getFlipNewOfferEvent();
-  }
-
-  public ConfigProperty<Boolean> getFlipWinEvent() {
-    return eventNotifierSubSettings.getFlipWinEvent();
-  }
-
   //Quests
   public ConfigProperty<Boolean> getQuestsEnabled() {
     return questSubSettings.getQuestsEnabled();

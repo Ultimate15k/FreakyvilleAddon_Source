@@ -90,21 +90,6 @@ public class EventNotifierEventsSubSettings extends Config {
   @SpriteSlot(y = 2, x = 6)
   private final ConfigProperty<Boolean> guardKillEvent = new ConfigProperty<>(false);
 
-  @SwitchSetting
-  @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3)
-  private final ConfigProperty<Boolean> FlipNewOfferEvent = new ConfigProperty<>(false);
-
-  @SwitchSetting
-  @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3, x = 1)
-  private final ConfigProperty<Boolean> FlipWinningEvent = new ConfigProperty<>(false);
-
-  @SwitchSetting
-  @SettingRequires("eventNotifier")
-  @SpriteSlot(y = 3, x = 2)
-  private final ConfigProperty<Boolean> FlipLosingEvent = new ConfigProperty<>(false);
-
   public ConfigProperty<Boolean> getaPlusVaultEvent() {
     return aPlusVaultEvent;
   }
@@ -167,14 +152,5 @@ public class EventNotifierEventsSubSettings extends Config {
 
   public ConfigProperty<Boolean> getBGangAreaEvent() {
     return bGangAreaEvent;
-  }
-  public ConfigProperty<Boolean> getFlipLostEvent() {
-    return FlipLosingEvent;
-  }
-  public ConfigProperty<Boolean> getFlipNewOfferEvent() {
-    return FlipNewOfferEvent;
-  }
-  public ConfigProperty<Boolean> getFlipWinEvent() {
-    return FlipWinningEvent;
   }
 }

@@ -100,17 +100,5 @@ public class EventNotifierSubSettings extends Config {
     return eventNotifierEventsSubSettings.getPvpChestEvent();
   }
 
-  public ConfigProperty<Boolean> getFlipLostEvent() {
-    return eventNotifierEventsSubSettings.getFlipLostEvent();
-  }
-
-  public ConfigProperty<Boolean> getFlipNewOfferEvent() {
-    return eventNotifierEventsSubSettings.getFlipNewOfferEvent();
-  }
-
-  public ConfigProperty<Boolean> getFlipWinEvent() {
-    return eventNotifierEventsSubSettings.getFlipWinEvent();
-  }
-
 
 }

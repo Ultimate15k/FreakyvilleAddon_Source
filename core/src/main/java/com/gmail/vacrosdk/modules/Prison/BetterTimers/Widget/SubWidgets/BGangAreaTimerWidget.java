@@ -7,7 +7,7 @@ import net.labymod.api.client.gui.icon.Icon;
 
 public class BGangAreaTimerWidget extends TimerWidget {
 
-  public BGangAreaTimerWidget(String id, FreakyvilleAddon addon, Icon icon) {
+  public BGangAreaTimerWidget(String id, Icon icon, FreakyvilleAddon addon) {
     super(id, addon, icon);
   }
 

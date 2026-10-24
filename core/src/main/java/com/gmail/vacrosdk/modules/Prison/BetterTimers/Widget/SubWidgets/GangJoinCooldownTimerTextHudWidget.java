@@ -7,7 +7,7 @@ import net.labymod.api.client.gui.icon.Icon;
 
 public class GangJoinCooldownTimerTextHudWidget extends TimerWidget {
 
-  public GangJoinCooldownTimerTextHudWidget(String id, FreakyvilleAddon addon, Icon icon) {
+  public GangJoinCooldownTimerTextHudWidget(String id, Icon icon, FreakyvilleAddon addon) {
     super(id, addon, icon);
   }
 

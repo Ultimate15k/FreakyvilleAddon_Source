@@ -9,7 +9,7 @@ import static com.gmail.vacrosdk.utils.TimerFunctions.playerExists;
 
 public class chest_TreeTimerTextHudWidget extends TimerWidget {
 
-  public chest_TreeTimerTextHudWidget(String id, FreakyvilleAddon addon, Icon icon) {
+  public chest_TreeTimerTextHudWidget(String id, Icon icon, FreakyvilleAddon addon) {
     super(id, addon, icon);
   }
 

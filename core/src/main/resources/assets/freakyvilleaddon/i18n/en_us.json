@@ -66,6 +66,9 @@
   },
   "freakyvilleaddon": {
     "hudWidget": {
+      "CM_Vault_widget": {
+        "name": "C-Max Vagtvault timer"
+      },
       "A+_Vault_widget": {
         "name": "A+ Bank timer"
       },
@@ -88,8 +91,8 @@
         "name": "Rocker torben timer"
       },
       "Vaults_disabled_widget": {
-        "name": "A+/A/B+ VV slået fra",
-        "description": "En timer over cooldownen, når en vagt slår A+/A/B+ vagtvault fra."
+        "name": "A+/A/B+/C-Max VV slået fra",
+        "description": "En timer over cooldownen, når en vagt slår A+/A/B+/C-Max vagtvault fra."
       },
       "B_PvPChest_Timer": {
         "name": "B hemmelig kiste timer",
@@ -98,7 +101,7 @@
       "B+_GangArea_Timer": {
         "name": "B+ Bandeområde timer"
       },
-      "Vaults_b_widget": {
+      "B+_Vault_widget": {
         "name": "B+ Bank timer"
       },
       "B_GangArea_Timer": {
@@ -372,7 +375,7 @@
               "name": "Rocker Torben"
             },
             "guardsDisabledVaultsEvent": {
-              "name": "A+/B+/A VV slået fra"
+              "name": "A+/A/B+/C-Max VV slået fra"
             },
             "stringCaughtEvent": {
               "name": "String fanget"
@@ -394,15 +397,6 @@
             },
             "bPlusVaultEvent": {
               "name": "B+ Bank"
-            },
-            "FlipNewOfferEvent": {
-              "name": "[Flipman] Nyt modbud"
-            },
-            "FlipWinningEvent": {
-              "name": "[Flipman] Flip vundet"
-            },
-            "FlipLosingEvent": {
-              "name": "[Flipman] Flip tabt"
             },
             "BoLootEvent": {
               "name": "Claim BO loot"

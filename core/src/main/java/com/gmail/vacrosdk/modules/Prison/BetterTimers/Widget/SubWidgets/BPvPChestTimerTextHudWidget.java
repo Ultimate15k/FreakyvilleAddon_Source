@@ -7,7 +7,7 @@ import net.labymod.api.client.gui.icon.Icon;
 
 public class BPvPChestTimerTextHudWidget extends TimerWidget {
 
-  public BPvPChestTimerTextHudWidget(String id, FreakyvilleAddon addon, Icon icon) {
+  public BPvPChestTimerTextHudWidget(String id, Icon icon, FreakyvilleAddon addon) {
     super(id, addon, icon);
   }
 
